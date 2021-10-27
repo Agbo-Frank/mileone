@@ -1,0 +1,26 @@
+{
+    "name": "dominion",
+    "email": "dominion@gmail.com",
+    "password": "123456",
+    "contacts": [
+        {
+            "media": "facebook",
+            "link": "dominion@facebook.com"
+        },
+        {
+            "media": "instagram",
+            "link": "dominion@instagram.com"
+        }
+        ],
+    "location": "University Of Port harcourt,Choba"
+}
+
+{
+    "name": "chicken",
+    "category": "meat",
+    "price": "123456",
+    "dp": "2000",
+    "description": "i love it",
+    "availability": true
+}
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNzZlZDNjNGQxMTlhMWM5ZjEzNjZkYSIsImlhdCI6MTYzNTE4MzkzMn0.VGISVbJKrpMXpxSzDfIn2SrUCjFvAPK52CVSgACRN8A
