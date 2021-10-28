@@ -2,7 +2,11 @@ var mongoose = require('mongoose')
 
 var commentSchema = new mongoose.Schema({
     itemId: String,
-    userId: String,
+    userInfo: {
+        _id: String,
+        image: String,
+        name: String
+    },
     message: String,
     date: {
         type: Date,
@@ -10,13 +14,15 @@ var commentSchema = new mongoose.Schema({
     },
     likes: [String],
     reply:[{
-        userId: String,
+        id: String,
+        image: String,
+        name: String,
         message: String,
+        likes: [String],
         date: {
             type: Date,
             default: Date.now()
-        },
-        likes: [String]
+        }
     }]
 })
 

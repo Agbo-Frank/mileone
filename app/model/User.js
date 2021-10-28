@@ -2,6 +2,7 @@ var mongoose = require('mongoose')
 
 var userSchema = new mongoose.Schema({
     name: String,
+    userId: String,
     googleId: String,
     email: String,
     password: String,
@@ -13,8 +14,6 @@ var userSchema = new mongoose.Schema({
            type: Number,
            default: 1
         }
-        // price: Number,
-        // image: String
     }],
     wishlist: [String],
     following: [String],

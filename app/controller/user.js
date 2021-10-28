@@ -47,21 +47,28 @@ module.exports.createUser = (req, res) => {
         
                         newUser.save()
                           .then(user => {
-                             var token = createToken(user._id)
-                             res.status(200).json({
-                                 token,
-                                user: {
-                                    name: user.name,
-                                    image: user.image,
-                                    cart: user.cart,
-                                    wishlist: user.wishlist,
-                                    email: user.email,
-                                    following: user.following,
-                                    history: user.history,
-                                    id: user._id
-                                }
-                             })
-        
+                             User.updateOne({ _id: user._id}, {
+                                userId:user._id  
+                            })
+                                .then(result => {
+                                    var token = createToken(user._id)
+                                    res.status(200).json({
+                                        token,
+                                       user: {
+                                           name: user.name,
+                                           image: user.image,
+                                           cart: user.cart,
+                                           wishlist: user.wishlist,
+                                           email: user.email,
+                                           following: user.following,
+                                           history: user.history,
+                                           id: user._id
+                                       }
+                                    })
+                                })
+                                .catch(err => {
+                                    res.status(400)
+                                })
                           })
                           .catch(err => {
                               console.log(err);
@@ -77,6 +84,42 @@ module.exports.createUser = (req, res) => {
     }
 }
 
+module.exports.editUser = (req, res) => {
+    var image = req.file
+    var userId = req.user 
+    var{ name, email } = req.body
+
+    User.findOne({ _id: userId})
+        .then(user => {
+            User.updateOne({
+                name: name || user.name,
+                email: email || user.email
+            })
+                .then(resp => {
+                    if(resp.acknowledged){
+                        res.status(200).json({ msg: 'update successfull'})
+                    }    
+                })
+                .catch(err => {
+                    res.status(400).json({ msg: 'update unsuccessfull'})
+                })
+        })
+        .catch(err => {
+            res.status(400).json({ msg: 'user not found'})
+        })
+}
+
+module.exports.getUser = (req, res) => {
+    var userId = req.user 
+
+    User.findById(userId)
+        .then(user => {
+            res.status(200).json({user})
+        })
+        .catch(err => {
+            res.status(400).json({errmsg: err})
+        })
+}
 
 module.exports.follow = (req, res) => {
     var userId = req.user
@@ -155,5 +198,38 @@ module.exports.getFollowing = (req, res) => {
         })
         .catch(err => {
             res.status(400).json({ errmsg: 'user does not exist' })
+        })
+}
+
+module.exports.addHistory = (req, res) => {
+    var { history } = req.body
+    var userId = req.user
+
+    User.updateOne({ _id: userId }, {
+        $addToSet: {
+            history
+        }
+    })
+        .then(result => {
+            res.status(200)
+        })
+        .catch(result => {
+            res.status(400)
+        })
+}
+module.exports.removeHistory = (req, res) => {
+    var { history } = req.body
+    var userId = req.user
+
+    User.updateOne({ _id: userId }, {
+        $pull: {
+            history
+        }
+    })
+        .then(result => {
+            res.status(200)
+        })
+        .catch(result => {
+            res.status(400)
         })
 }

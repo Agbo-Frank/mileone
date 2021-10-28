@@ -19,7 +19,16 @@ module.exports.createProduct = (req, res) => {
 
       newProduct.save()
         .then(product => {
-            res.status(200).json({ product })
+            Product.updateOne({ _id: product._id}, {
+                productId:product._id  
+            })
+                .then(result => {
+                    res.status(200).json({ product })
+                })
+                .catch(err => {
+                    res.status(400)
+                })
+            
         })
         .catch(err => {
             res.status(400).json({errmsg: 'unsucessfull'})
@@ -72,21 +81,30 @@ module.exports.editProduct = (req, res) => {
             res.status(400).json({ msg: 'item not found'})
         })
 }
+
 module.exports.getProduct = (req, res) => {
     var itemId = req.params.id
 
     Product.aggregate([
         {
-            $match: { _id: ObjectId(itemId) }
+            $match: { productId: itemId }
+        },
+        {
+            $lookup: {
+                from: "comments",
+                localField: "productId",
+                foreignField: "itemId",
+                as: "comment"
+            }
+        },
+        {
+            $lookup: {
+                from: "users",
+                localField: "$comment[0]",
+                foreignField: "userId",
+                as: "comment"
+            }
         }
-        // {
-        //     $lookup: {
-        //         from: "comments",
-        //         localField: "_id",
-        //         foreignField: "itemId",
-        //         as: "comment"
-        //     }
-        // }
     ])
         .then(product => {
             res.status(200).json({ product })
@@ -94,14 +112,6 @@ module.exports.getProduct = (req, res) => {
         .catch(err => {
             res.status(400).json({errmsg: "can't find product"})
         })
-
-    // Product.findOne({ _id: itemId })
-    //     .then(product => {
-    //         res.status(200).json({ product })
-    //     })
-    //     .catch(err => {
-    //         res.status(400).json({errmsg: "can't find product"})
-    //     })
 }
 module.exports.getProducts = (req, res) => {
     var { page } = req.query
@@ -115,5 +125,24 @@ module.exports.getProducts = (req, res) => {
         })
         .catch(err => {
             res.status(400).json({errmsg: "can't find product"})
+        })
+}
+
+module.exports.rateProduct = (req, res) => {
+    var userId = req.user
+    var { rate, itemId } = req.body
+
+    Product.updateOne({ _id: itemId }, {
+        $addToSet: {
+            rating: {
+                rate, userId
+            }
+        }
+    })
+        .then(update => {
+            res.status(200).json({msg: 'thank you for your feedack'})
+        })
+        .catch(err => {
+            res.status(400).json({errmsg: err})
         })
 }

@@ -75,27 +75,34 @@ module.exports.createVendor = async (req, res) => {
         
                         newUser.save()
                           .then(user => {
-                             var token = createToken(user._id)
-                             res.status(200).json({
-                                 token,
-                                 user: {
-                                     name: user.name,
-                                     email: user.email,
-                                     biography: user.biography,
-                                     contacts: {
-                                         ...user.contacts
-                                     },
-                                     location: {
-                                         ...user.location,
-                                         coordinates: [
-                                            user.location.coordinates
-                                         ]
-                                     },
-                                     followers: user.followers,
-                                     id: user._id
-                                 }
-                             })
-        
+                            Vendor.updateOne({ _id: user._id}, {
+                                vendorId:user._id  
+                            })
+                                .then(result => {
+                                    var token = createToken(user._id)
+                                    res.status(200).json({
+                                        token,
+                                        user: {
+                                            name: user.name,
+                                            email: user.email,
+                                            biography: user.biography,
+                                            contacts: {
+                                                ...user.contacts
+                                            },
+                                            location: {
+                                                ...user.location,
+                                                coordinates: [
+                                                   user.location.coordinates
+                                                ]
+                                            },
+                                            followers: user.followers,
+                                            id: user._id
+                                        }
+                                    })
+                                })
+                                .catch(err => {
+                                    res.status(400)
+                                })
                           })
                           .catch(err => {
                               if(err.code === 16755 && err.index === 0){
@@ -138,6 +145,18 @@ module.exports.getVendors = (req, res) => {
         console.log(err)
         res.status(400).json({errmsg: "couldn't retrive data"})
     })
+}
+
+module.exports.getVendor = (req, res) => {
+    var userId = req.user 
+
+    Vendor.findById(userId)
+        .then(user => {
+            res.status(200).json({user})
+        })
+        .catch(err => {
+            res.status(400).json({errmsg: err})
+        })
 }
 
 module.exports.getFollowers = (req, res) => {
