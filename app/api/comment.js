@@ -8,7 +8,7 @@ var router = Router()
 router.post('/', authenticate, makeComment)
 
 //delete a comment
-router.delete('/', authenticate, delComment)
+router.delete('/:id', authenticate, delComment)
 
 //like and Unlike comment
 router.put('/:id', authenticate, likeComment)

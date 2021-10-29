@@ -96,14 +96,6 @@ module.exports.getProduct = (req, res) => {
                 foreignField: "itemId",
                 as: "comment"
             }
-        },
-        {
-            $lookup: {
-                from: "users",
-                localField: "$comment[0]",
-                foreignField: "userId",
-                as: "comment"
-            }
         }
     ])
         .then(product => {
@@ -118,8 +110,8 @@ module.exports.getProducts = (req, res) => {
 
     Product.find({ })
         .sort({ date: 1 })
-        .skip(page >= 1 ? page : 0)
-        .limit(page >= 1 ? page * 50 : 50)
+        .skip(page > 1 ? (page - 1) * 30 : 0)
+        .limit(page > 1 ? page * 30 : 30)
         .then(product => {
             res.status(200).json({ product })
         })

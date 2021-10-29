@@ -41,26 +41,48 @@ module.exports.removeFromCart = (req, res) => {
 module.exports.getCart = (req, res) => {
     var userId = req.user
 
-    User.findById(userId)
-        .then(user => {
-            var cart = user.cart.map(item => {
-                return item.itemId
-            })
-            var quantity = user.cart.map(item => {
-                return item.quantity
-            })
-            Product.find({ _id: cart})
-                .select('-comments')
-                .exec((err, product) => {
-                    if(err){
-                        res.status(400)
-                    }
-                    else{
-                        res.status(200).json({ product, quantity })
-                    }
-                })
+    var pipeLine = [
+        {
+            $match:{
+                userId
+            }
+        },
+        {
+            $project: {
+                cart: 1
+            }
+        },
+        {
+            $unwind: {
+                path: "$cart"
+            }
+        },
+        {
+            $lookup: {
+                from: 'products',
+                localField: 'cart.itemId',
+                foreignField: 'productId',
+                as: 'cartItems'
+              }
+        },
+        {
+            $addFields: {
+                quantity: "$cart.quantity"
+            }
+        },
+        {
+            $project: {
+                cartItems: 1,
+                quantity:1
+              }
+        }
+    ]
+
+    User.aggregate(pipeLine)
+        .then(product => {
+            res.status(200).json({ product })
         })
         .catch(err => {
-            res.status(400).json({errmsg: "User Not Found"})
+            res.status(400)
         })
 }

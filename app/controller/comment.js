@@ -80,17 +80,21 @@ module.exports.likeComment = (req, res) => {
 
 module.exports.delComment = (req, res) => {
     var userId = req.user
+    var commentId = req.params.id
 
-    Comments.findOne({ userId })
+    Comments.findOne({ commentId })
         .then(comment => {
-            if(comment){
-                Comments.findOneAndRemove({ _id: comment.id })
+            if(comment.userId === userId){
+                Comments.findOneAndRemove({ _id: commentId })
                     .then(del => {
                         res.status(200).json({ msg : "comment deleted"})
                     })
                     .catch(err => {
                         res.status(400).json({ msg : "comment not deleted"})
                     })
+            }
+            else{
+                res.status(400).json({msg: "you can't delete this comment"})
             }
         })
         .catch(comment => {
@@ -130,8 +134,9 @@ module.exports.replyComment = (req, res) => {
 module.exports.delReply = (req, res) => {
     var userId = req.user
     var replyId = req.params.id
+    var commentId = res.query.id
 
-    Comments.findOne({ userId })
+    Comments.findOne({ commentId })
         .then(comment => {
             if(comment){
                 Comments.updateOne({ _id: commentId }, {
