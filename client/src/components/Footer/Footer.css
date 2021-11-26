@@ -1,0 +1,83 @@
+.footer{
+    background-color: #03071E;
+    padding: 30px 0;
+    margin-top: 30px;
+}
+.footer-container{
+    width: 90%;
+    margin: 0 auto;
+    color: white;
+}
+.footerLogo{
+    width: 35px;
+    height: 35px;
+}
+.navclick{
+    width: 18px;
+    height: 18px;
+}
+.footer .before-line h4{
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    text-indent: 1px;
+    color: #FFFFFF;
+}
+.footer .before-line p{
+    font-family: 'Roboto',sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 24px;
+    text-indent: 1px;
+    color: #FFFFFF;
+}
+.footer .footer-line{
+    border-bottom: 1px solid #fff;
+    padding: 20px 0;
+}
+.footer .under-line{
+    padding-top: 40px;
+}
+.footer .under-line h4{
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-indent: 1px;
+    color: #FFBA08;
+}
+.footer .under-line ul li{
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 24px;
+    text-indent: 1px;
+    color: #FFFFFF;
+}
+.footer .footer-right{
+    position: absolute;
+    right: 100px;
+}
+
+.footer .footer-right img{
+    margin-right: 20px;
+}
+.footer .footer-right button{
+    margin-right: 20px;
+}
+.footer .social{
+    padding-top: 40px;
+}
+.footer .social img{
+    width: 36px;
+    height: 36px;
+}
+
+.footer .social ul{
+    display: flex;
+}

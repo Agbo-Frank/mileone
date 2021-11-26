@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap');
+
+body{
+    font-family: 'Ubuntu', sans-serif;
+}
+.hero1{
+    width: 100%;
+    height: auto;
+    padding-top: 60px;
+    background: linear-gradient(180deg, rgba(255, 186, 8, 0) 0%, #FFBA08 100%);
+}
+.hero1-container{
+    width: 80%;
+    margin: 0 auto;
+}
+.hero1 .hero1-items{
+    text-align: center;
+}
+.hero1 .hero1-items{
+    padding-top: 30px;
+}
+.hero1 .hero1-items ul li{
+    display: inline;
+    margin-right: 30px;
+}
+.hero1 .hero1-items .active{
+    background: #F48C06;
+    box-shadow: -1px 2px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    color: #fff;
+    padding: 5px 20px;
+}
+.hero1 .hero1-content{
+    padding-bottom: 20px;
+}
+.hero1 .hero1-content h1{
+    font-family: 'Ubuntu', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 55px;
+    line-height: 63px;
+    text-transform: capitalize;
+    color: #000000;
+    padding-top: 70px;
+}
+.hero1 .hero1-content h1 span{
+    color: #EC6083;
+}
