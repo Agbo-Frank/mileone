@@ -1,20 +1,17 @@
 import React, { useState } from "react";
 import images from "../../assets/images/images";
 import { Link } from "react-router-dom";
-import './HotDeals.css'
+import './Exclusive.css'
 
-const HotDeals = () => {
+const Exclusive = () => {
 
   return (
     <>
         <section className="hotdeals">
             <div className="home-container">
                 <div className="row mile-label">
-                    <div className="col-lg-6 col-md-6 col-6">
-                        Hot deals
-                    </div>
-                    <div className="col-lg-6 col-md-6 col-6 text-end">
-                        See all
+                    <div className="col-12">
+                        Exclusively New
                     </div>
                 </div>
                 <div className="row hotdeals-content">
@@ -203,4 +200,4 @@ const HotDeals = () => {
   );
 };
 
-export default HotDeals;
+export default Exclusive;

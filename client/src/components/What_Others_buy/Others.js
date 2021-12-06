@@ -1,28 +1,22 @@
 import React, { useState } from "react";
 import images from "../../assets/images/images";
-import { Link } from "react-router-dom";
-import './HotDeals.css'
+import './Others.css'
 
-const HotDeals = () => {
+const Others = () => {
 
   return (
     <>
         <section className="hotdeals">
             <div className="home-container">
                 <div className="row mile-label">
-                    <div className="col-lg-6 col-md-6 col-6">
-                        Hot deals
-                    </div>
-                    <div className="col-lg-6 col-md-6 col-6 text-end">
-                        See all
+                    <div className="col-12">
+                        What others also bought
                     </div>
                 </div>
                 <div className="row hotdeals-content">
                     <div className="col-lg-3 col-md-6 col-6">
                         <div className="mile-card">
-                            <Link to="/product">
-                                <img src={images.food2} alt="image" />
-                            </Link>
+                            <img src={images.food2} alt="image" />
                             <div className="mile-food-card flex">
                                 <div className="">
                                     <img src={images.diamond} alt="image"/>
@@ -42,9 +36,7 @@ const HotDeals = () => {
                     </div>
                     <div className="col-lg-3 col-md-6 col-6">
                         <div className="mile-card">
-                            <Link to="/product">
-                                <img src={images.brandfood2} alt="image" />
-                            </Link>
+                            <img src={images.brandfood2} alt="image" />
                             <div className="mile-food-card flex">
                                 <div className="">
                                     <img src={images.diamond} alt="image"/>
@@ -64,9 +56,7 @@ const HotDeals = () => {
                     </div>
                     <div className="col-lg-3 col-md-6 col-6">
                         <div className="mile-card">
-                            <Link to="/product">
-                                <img src={images.brandfood1} alt="image" />
-                            </Link>
+                            <img src={images.brandfood1} alt="image" />
                             <div className="mile-food-card flex">
                                 <div className="">
                                     <img src={images.diamond} alt="image"/>
@@ -86,9 +76,7 @@ const HotDeals = () => {
                     </div>
                     <div className="col-lg-3 col-md-6 col-6">
                         <div className="mile-card">
-                            <Link to="/product">
-                                <img src={images.food1} alt="image" />
-                            </Link>
+                            <img src={images.food1} alt="image" />
                             <div className="mile-food-card flex">
                                 <div className="">
                                     <img src={images.diamond} alt="image"/>
@@ -110,9 +98,7 @@ const HotDeals = () => {
                 <div className="row hotdeals-content">
                     <div className="col-lg-3 col-md-6 col-6">
                         <div className="mile-card">
-                            <Link to="/product">
-                                <img src={images.food2} alt="image" />
-                            </Link>
+                            <img src={images.food2} alt="image" />
                             <div className="mile-food-card flex">
                                 <div className="">
                                     <img src={images.diamond} alt="image"/>
@@ -132,9 +118,7 @@ const HotDeals = () => {
                     </div>
                     <div className="col-lg-3 col-md-6 col-6">
                         <div className="mile-card">
-                            <Link to="/product">
-                                <img src={images.brandfood2} alt="image" />
-                            </Link>
+                            <img src={images.brandfood2} alt="image" />
                             <div className="mile-food-card flex">
                                 <div className="">
                                     <img src={images.diamond} alt="image"/>
@@ -154,9 +138,7 @@ const HotDeals = () => {
                     </div>
                     <div className="col-lg-3 col-md-6 col-6">
                         <div className="mile-card">
-                            <Link to="/product">
-                                <img src={images.brandfood1} alt="image" />
-                            </Link>
+                            <img src={images.brandfood1} alt="image" />
                             <div className="mile-food-card flex">
                                 <div className="">
                                     <img src={images.diamond} alt="image"/>
@@ -176,9 +158,7 @@ const HotDeals = () => {
                     </div>
                     <div className="col-lg-3 col-md-6 col-6">
                         <div className="mile-card">
-                            <Link to="/product">
-                                <img src={images.food1} alt="image" />
-                            </Link>
+                            <img src={images.food1} alt="image" />
                             <div className="mile-food-card flex">
                                 <div className="">
                                     <img src={images.diamond} alt="image"/>
@@ -203,4 +183,4 @@ const HotDeals = () => {
   );
 };
 
-export default HotDeals;
+export default Others;
