@@ -71,6 +71,13 @@
     border-bottom: 1px solid #6A040F;
     font-weight: 700;
 }
+
+.header .row ul .i-icon{
+    color: #9D0208;
+    font-size: 20px;
+    margin-top: 5px;
+}
+
 .header .row ul button{
     margin-left: 40px;
     font-size: 14px;

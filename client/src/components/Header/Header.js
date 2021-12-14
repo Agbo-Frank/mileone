@@ -70,9 +70,10 @@ const Header = () => {
                     </div>
                     <div className="col-lg-3 col-md-4 col-12">
                         <ul className="">
-                            <li className="active">Home</li>
-                            <li>About Us</li>
-                            <button type="button">Sign In <i className="fas fa-user-plus"></i></button>
+                            <li className="active"><Link to="/">Home</Link></li>
+                            <li><Link to="/about">About Us</Link></li>
+                            <Link to="/cart"><i class="fas fa-cart-plus i-icon"></i></Link>
+                            <Link to="/login"><button type="button">Sign In <i className="fas fa-user-plus"></i></button></Link>
                         </ul>
                     </div>
                 </div>

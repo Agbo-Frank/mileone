@@ -24,6 +24,13 @@ const images = {
     logo2: require("./logo2.png").default,
     logo3: require("./logo3.png").default,
     singlestar: require("./singlestar.png").default,
+    aboutImage: require("./aboutImage.png").default,
+    aboutClip1: require("./aboutClip1.png").default,
+    aboutClip2: require("./aboutClip2.png").default,
+    aboutClip3: require("./aboutClip3.png").default,
+    clip4: require("./clip4.png").default,
+    timage: require("./timage.png").default,
+    Google: require("./Google.png").default,
 }
 
 

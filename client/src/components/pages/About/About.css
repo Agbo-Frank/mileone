@@ -1,0 +1,291 @@
+.about{
+    margin: 130px 0;
+}
+.about h3{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 34px;
+    text-align: center;
+    text-transform: capitalize;
+    color: #D00000;
+    padding-top: 50px;
+}
+
+.about p{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 23px;
+    line-height: 26px;
+    text-align: center;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.about-section-2{
+    background-color: #ffffff;
+    padding: 50px 0;
+    margin-bottom: 150px;
+}
+
+.about-section-2 h3{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 34px;
+    text-transform: capitalize;
+    color: #370617;
+}
+
+.about-section-2 p{
+    font-style: normal;
+    font-weight: 300;
+    font-size: 23px;
+    line-height: 26px;
+    text-transform: capitalize;
+    text-align: justify;
+    color: #000000;
+}
+
+.about-section-3{
+    margin-top: 100px;
+    padding: 20px 0;
+}
+
+.about-section-3 h4{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    padding-bottom: 20px;
+    text-transform: uppercase;
+    color: #D00000;
+}
+
+.about-section-3 h1{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 55px;
+    padding: 0 200px;
+    padding-bottom: 30px;
+    text-align: center;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.about-section-3 img{
+    width: 250px;
+    margin: 0 auto;
+}
+
+.about-section-3 h3{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 42px;
+    text-align: center;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.about-section-3 p{
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    padding: 0 70px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.about-section-4 h6{
+    padding-top: 150px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    text-transform: uppercase;
+    color: #D00000;
+}
+
+.about-section-4 h1{
+    padding-top: 10px;
+    padding-bottom: 50px;
+    font-family: 'ubuntu', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 55px;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.about-section-4 .left-icon{
+    margin-right: 8px;
+    font-size: 35px;
+    color: #CFCFCF;
+}
+
+.about-section-4 .right-icon{
+    color: #D00000;
+    font-size: 35px;
+}
+
+.about-section-4 .icons img{
+    width: 50px;
+    height: 50px;
+}
+
+.about-section-4 .icons li a{
+    text-decoration: none;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    text-indent: 1px;
+    color: #FFFFFF;
+    padding-top: 12px;
+
+text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.about-section-4 .icons .i-active{
+    background: #9D0208;
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    width: 204px;
+}
+
+.about-section-4 .menu-item{
+    border-left: 3px solid #EC6083;
+    padding-left: 40px;
+}
+
+
+.about-section-4 .mile-card{
+    margin-bottom: 120px;
+}
+
+.about-section-4 .mile-card .mile-food-card .items{
+    text-align: left;
+}
+.about-section-4 .mile-card .mile-food-card .star{
+    margin: 0;
+}
+
+.about-section-4 .mile-card .mile-food-card .mile-addcart{
+    padding: 0 50px;
+}
+.about-section-4 .mile-card .mile-food-card .button{
+    text-align: center;
+}
+
+.about-section-5{
+    padding: 130px 0;
+}
+
+.about-section-5 h4{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    text-transform: uppercase;
+    color: #D00000;
+    padding-bottom: 20px;
+}
+
+.about-section-5 h1{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 55px;
+    text-transform: capitalize;
+    color: #370617;
+    padding-bottom: 40px;
+}
+
+.about-section-5 p{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 25px;
+    text-transform: lowercase;
+    color: rgba(0, 0, 0, 0.7);
+    padding-bottom: 40px;
+}
+
+.about-section-5 .timage{
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+}
+
+.about-section-5 h3{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 0px;
+    text-transform: capitalize;
+    color: #6A040F;
+    padding-bottom: 6px;
+}
+
+.about-section-6{
+    padding: 60px 0;
+    margin-bottom: 100px;
+}
+
+.about-section-6 .blue{
+    background: #03071E;
+    box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    color: #ffffff;
+    padding: 30px;
+}
+
+.about-section-6 h3{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 0px;
+    text-transform: capitalize;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+.about-section-6 p{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    padding-bottom: 30px;
+}
+
+.about-section-6 a{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 21px;
+}
+
+.about-section-6 a i{
+    margin-left: 10px;
+}
+
+.about-section-6 .orange{
+    background: #E85D04;
+    box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    color: #ffffff;
+    padding: 30px;
+}
+
+.about-section-6 .white{
+    background: #FFFFFF;
+    box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    color: #000000;
+    padding: 30px;
+}

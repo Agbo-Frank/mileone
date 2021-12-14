@@ -1,0 +1,98 @@
+.table>:not(caption)>*> .product{
+    width: 50%;
+}
+
+.table>tbody{
+    background-color: #ffffff;
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25));
+}
+
+tbody, td, tfoot, th, thead, tr{
+    border: none;
+}
+
+/* tbody, td, tfoot, thead, tr{
+    border-right: 1px solid rgba(0, 0, 0, 0.3);
+} */
+
+
+.table tbody span{
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-indent: 1px;
+    color: #000000;
+}
+
+.table tbody .action{
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 24px;
+    text-indent: 1px;
+}
+
+.table tbody .action .save{
+    color: rgb(0, 143, 0);
+}
+.table tbody .action .delete{
+    color: rgb(194, 4, 4);
+}
+
+.table tbody h1{
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    text-transform: capitalize;
+    color: #6A040F;
+}
+
+.cart h2{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    text-indent: 1px;
+    color: #D00000;
+    padding-top: 50px;
+}
+
+.cart .buttons{
+    margin-top: 120px;
+}
+
+.cart .buttons button{
+    padding: 10px 60px;
+    color: #ffffff;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    text-indent: 1px;
+    margin-left: 30px;
+}
+
+.cart .buttons .continue{
+    background: #F48C06;
+}
+
+.cart .buttons .pay{
+    background: #D00000;
+}
+
+.cart h3{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: right;
+    text-indent: 1px;
+    color: #F48C06;
+    padding-top: 50px;
+}

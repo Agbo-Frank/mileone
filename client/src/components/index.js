@@ -8,4 +8,7 @@ export {default as Special} from './Special_Offer/Special';
 export {default as Home} from './pages/Home/Home';
 export {default as Brand} from './pages/Brand/Brand';
 export {default as Product} from './pages/Product/Product';
+export {default as About} from './pages/About/About';
+export {default as Cart} from './pages/Cart/Cart';
+export {default as Login} from './pages/Login/Login';
 export {default as Footer} from './Footer/Footer';

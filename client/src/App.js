@@ -1,7 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom'
-import { Header, Home, Brand, Product, Footer } from './components';
-// import './style.css';
+import { Header, Home, Brand, Product, About, Cart, Login, Footer } from './components';
 import './app.css'
 
 function App() {
@@ -12,7 +11,9 @@ function App() {
         <Route exact path="/" element={<Home />}  />
         <Route exact path="/brand" element={<Brand />}  />
         <Route exact path="/product" element={<Product />}  />
-        {/* <Route exact path="" component={}  /> */}
+        <Route exact path="/about" element={<About />}  />
+        <Route exact path="/cart" element={<Cart />}  />
+        <Route exact path="/login" element={<Login />}  />
       </Routes>
       <Footer />
     </>

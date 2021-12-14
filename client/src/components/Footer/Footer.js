@@ -20,17 +20,17 @@ const Header = () => {
                             <img src={images.navigation} alt="navclick" className="navclick" />
                         </div>
                     </div>
-                    <div className="col-lg-6 col-md-4 col-12">
-                        <div className="footer-right">
-                            <div className="flex">
-                                <img src={images.footerLogo} alt="FooterLogo" className="footerLogo"/>
+                    <div className="col-lg-6 col-md-4 col-12 text-end">
+                        <div className="">
+                            <div className="">
+                                {/* <img src={images.footerLogo} alt="FooterLogo" className="footerLogo"/> */}
                                 <div>
                                     <h4>Download the free Mileone App</h4>
                                     <p>Get access to exclusive offers!</p>
                                 </div>
                             </div>
                             <div>
-                                <button type="button" className="mile-btn">App Store</button>
+                                <button type="button" className="mile-btn mr-3">App Store</button>
                                 <button type="button" className="mile-btn">Play Store</button>
                             </div>
                         </div>
