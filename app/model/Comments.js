@@ -2,11 +2,7 @@ var mongoose = require('mongoose')
 
 var commentSchema = new mongoose.Schema({
     itemId: String,
-    userInfo: {
-        _id: String,
-        image: String,
-        name: String
-    },
+    userId: String,
     message: String,
     date: {
         type: Date,

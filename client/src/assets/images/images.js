@@ -12,6 +12,8 @@ const images = {
     tiktok: require("./TikTok.png").default,
     facebook: require("./Facebook.png").default,
     instagram: require("./Instagram.png").default,
+    soda: require("./Soda.png").default,
+    taco: require("./Taco.png").default,
 }
 
 

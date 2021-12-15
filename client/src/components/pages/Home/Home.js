@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import images from "../../../assets/images/images";
 import { Hero1, HotDeals } from "../../../components";
+import Menu from "../../Menu/Menu";
 import './Home.css'
 
 const Home = () => {
@@ -8,6 +9,7 @@ const Home = () => {
   return (
     <>
         <Hero1 />
+        <Menu/>
         <section className="home-brand">
             <div className="home-container">
                 <div className="row mile-label">
