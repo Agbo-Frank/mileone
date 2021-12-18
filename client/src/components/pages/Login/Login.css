@@ -1,6 +1,10 @@
-.auth .login {
+.auth{
     position: relative;
+    overflow: hidden!important;
 }
+/* .auth .login {
+    position: relative;
+} */
 .auth .matrix-1{
     background: rgba(186, 220, 255, 0.6);
     border-radius: 20px;

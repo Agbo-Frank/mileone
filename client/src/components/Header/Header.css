@@ -45,6 +45,12 @@
     font-size: 18px;
     color: #E85D04;
 }
+
+.header .row .menu-link{
+    display: flex;
+    justify-content: flex-start;
+}
+
 .header .row .box > input {
     flex: 1;
     height: 26px;
@@ -65,6 +71,9 @@
     margin-right: 20px;
     color: #03071E;
     padding-top: 5px;
+}
+.header .row ul li a:hover{
+    color: #6A040F;
 }
 .header .row ul .active{
     color: #6A040F;
@@ -90,7 +99,7 @@
 .menu-style{
     background: #F7CE60;
     position: fixed;
-    width: 20vw;
+    width: 100%;
     height: auto;
     max-height: 100vh;
     /* display: grid; */
@@ -131,6 +140,7 @@
     box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.25);
     border-radius: 30px;
     padding: 0 5px;
+    width: 50%;
 }
 .menu-style ul .m-active a{
     color: #fff;
@@ -154,8 +164,12 @@
         padding-top: 5px;
     }
     .header .row ul button{
-        margin-left: 0px;
+        margin-left: 10px;
         padding: 8px 10px;
+    }
+    .header .row .menu-link{
+        display: flex;
+        justify-content: flex-end;
     }
 }
 

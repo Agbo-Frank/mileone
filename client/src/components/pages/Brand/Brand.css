@@ -32,10 +32,12 @@
     text-indent: 1px;
     color: #03071E;
 }
-.mileone-container .brands ul .active{
+.mileone-container .brands .active{
     background: #F48C06;
     box-shadow: -1px 2px 8px rgba(0, 0, 0, 0.3);
     border-radius: 15px;
     color: #fff;
     padding: 5px 20px;
+    text-align: center;
+    width: 100px;
 }

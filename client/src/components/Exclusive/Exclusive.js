@@ -7,14 +7,14 @@ const Exclusive = () => {
 
   return (
     <>
-        <section className="hotdeals">
+        <section className="exclusive">
             <div className="home-container">
                 <div className="row mile-label">
                     <div className="col-12">
                         Exclusively New
                     </div>
                 </div>
-                <div className="row hotdeals-content">
+                <div className="row exclusive-content">
                     <div className="col-lg-3 col-md-6 col-6">
                         <div className="mile-card">
                             <Link to="/product">
@@ -104,7 +104,7 @@ const Exclusive = () => {
                         </div>
                     </div>
                 </div>
-                <div className="row hotdeals-content">
+                <div className="row exclusive-content">
                     <div className="col-lg-3 col-md-6 col-6">
                         <div className="mile-card">
                             <Link to="/product">

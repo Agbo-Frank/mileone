@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import images from "../../../assets/images/images";
-import { Hero2 } from "../../../components";
+import { Header, Hero2 } from "../../../components";
 import { Link } from "react-router-dom";
 import './About.css'
 
@@ -8,6 +8,7 @@ const About = () => {
 
     return (
         <>
+            <Header />
             <Hero2 />
 
             <section className="about">
@@ -87,7 +88,7 @@ const About = () => {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-lg-3 col-md-4 col-12">
+                        <div className="col-lg-3 col-md-4 col-12 all-dishes">
                             <div className="icons">
                                 <ul>
                                     <li className="flex i-active">
@@ -277,7 +278,7 @@ const About = () => {
             <section className="about-section-6">
                 <div className="mileone-container">
                     <div className="row">
-                        <div className="col-lg-4 col-md-4 col-12">
+                        <div className="col-lg-4 col-md-4 col-12 mb-5">
                             <div className="blue">
                                 <h3>We’ve Got What You Want</h3>
                                 <p>The lorem ipsum is a placeholder 
@@ -293,7 +294,7 @@ const About = () => {
                                 <Link to="">Learn More <i class="fas fa-arrow-right"></i></Link>
                             </div>
                         </div>
-                        <div className="col-lg-4 col-md-4 col-12">
+                        <div className="col-lg-4 col-md-4 col-12 mb-5">
                             <div className="orange">
                                 <h3>Get an Account To Stay Shopping</h3>
                                 <p>The lorem ipsum is a placeholder 
@@ -309,7 +310,7 @@ const About = () => {
                                 <Link to="">Learn More <i class="fas fa-arrow-right"></i></Link>
                             </div>
                         </div>
-                        <div className="col-lg-4 col-md-4 col-12">
+                        <div className="col-lg-4 col-md-4 col-12 mb-5">
                             <div className="white">
                                 <h3>Become a vendor</h3>
                                 <p>The lorem ipsum is a placeholder 

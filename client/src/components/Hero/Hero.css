@@ -9,6 +9,9 @@ body{
     padding-top: 60px;
     background: linear-gradient(180deg, rgba(255, 186, 8, 0) 0%, #FFBA08 100%);
 }
+.hero2{
+    padding-top: 160px;
+}
 .hero1-container{
     width: 80%;
     margin: 0 auto;
@@ -29,6 +32,8 @@ body{
     border-radius: 15px;
     color: #fff;
     padding: 5px 20px;
+    text-align: center;
+    width: 100px;
 }
 .hero1 .hero1-content{
     padding-bottom: 20px;
@@ -41,8 +46,16 @@ body{
     line-height: 63px;
     text-transform: capitalize;
     color: #000000;
-    padding-top: 70px;
 }
 .hero1 .hero1-content h1 span{
     color: #EC6083;
+}
+
+@media screen and (max-width: 768px){
+    .hero1{
+        padding-top: 160px;
+    }
+    .hero2{
+        padding-top: 200px;
+    }
 }

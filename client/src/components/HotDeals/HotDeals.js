@@ -33,8 +33,10 @@ const HotDeals = () => {
                                     <img src={images.star} alt="image" className="star"/>
                                     <p>$35.00</p>
                                     <div>
-                                        <button type="button" className="mile-addcart">Add to Cart</button>
-                                        <button type="button" className="mile-wishlist">Wishlist</button>
+                                        <button type="button" className="mile-addcart mb-2">Add to Cart</button>
+                                        <Link to="/wishlist">
+                                            <button type="button" className="mile-wishlist mb-2">Wishlist</button>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
@@ -55,8 +57,10 @@ const HotDeals = () => {
                                     <img src={images.star} alt="image" className="star"/>
                                     <p>$35.00</p>
                                     <div>
-                                        <button type="button" className="mile-addcart">Add to Cart</button>
-                                        <button type="button" className="mile-wishlist">Wishlist</button>
+                                        <button type="button" className="mile-addcart mb-2">Add to Cart</button>
+                                        <Link to="/wishlist">
+                                            <button type="button" className="mile-wishlist mb-2">Wishlist</button>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
@@ -77,8 +81,10 @@ const HotDeals = () => {
                                     <img src={images.star} alt="image" className="star"/>
                                     <p>$35.00</p>
                                     <div>
-                                        <button type="button" className="mile-addcart">Add to Cart</button>
-                                        <button type="button" className="mile-wishlist">Wishlist</button>
+                                        <button type="button" className="mile-addcart mb-2">Add to Cart</button>
+                                        <Link to="/wishlist">
+                                            <button type="button" className="mile-wishlist mb-2">Wishlist</button>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
@@ -99,8 +105,10 @@ const HotDeals = () => {
                                     <img src={images.star} alt="image" className="star"/>
                                     <p>$35.00</p>
                                     <div>
-                                        <button type="button" className="mile-addcart">Add to Cart</button>
-                                        <button type="button" className="mile-wishlist">Wishlist</button>
+                                        <button type="button" className="mile-addcart mb-2">Add to Cart</button>
+                                        <Link to="/wishlist">
+                                            <button type="button" className="mile-wishlist mb-2">Wishlist</button>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
@@ -123,8 +131,8 @@ const HotDeals = () => {
                                     <img src={images.star} alt="image" className="star"/>
                                     <p>$35.00</p>
                                     <div>
-                                        <button type="button" className="mile-addcart">Add to Cart</button>
-                                        <button type="button" className="mile-wishlist">Wishlist</button>
+                                        <button type="button" className="mile-addcart mb-2">Add to Cart</button>
+                                        <button type="button" className="mile-wishlist mb-2">Wishlist</button>
                                     </div>
                                 </div>
                             </div>
@@ -145,8 +153,8 @@ const HotDeals = () => {
                                     <img src={images.star} alt="image" className="star"/>
                                     <p>$35.00</p>
                                     <div>
-                                        <button type="button" className="mile-addcart">Add to Cart</button>
-                                        <button type="button" className="mile-wishlist">Wishlist</button>
+                                        <button type="button" className="mile-addcart mb-2">Add to Cart</button>
+                                        <button type="button" className="mile-wishlist mb-2">Wishlist</button>
                                     </div>
                                 </div>
                             </div>
@@ -167,8 +175,8 @@ const HotDeals = () => {
                                     <img src={images.star} alt="image" className="star"/>
                                     <p>$35.00</p>
                                     <div>
-                                        <button type="button" className="mile-addcart">Add to Cart</button>
-                                        <button type="button" className="mile-wishlist">Wishlist</button>
+                                        <button type="button" className="mile-addcart mb-2">Add to Cart</button>
+                                        <button type="button" className="mile-wishlist mb-2">Wishlist</button>
                                     </div>
                                 </div>
                             </div>
@@ -189,8 +197,8 @@ const HotDeals = () => {
                                     <img src={images.star} alt="image" className="star"/>
                                     <p>$35.00</p>
                                     <div>
-                                        <button type="button" className="mile-addcart">Add to Cart</button>
-                                        <button type="button" className="mile-wishlist">Wishlist</button>
+                                        <button type="button" className="mile-addcart mb-2">Add to Cart</button>
+                                        <button type="button" className="mile-wishlist mb-2">Wishlist</button>
                                     </div>
                                 </div>
                             </div>

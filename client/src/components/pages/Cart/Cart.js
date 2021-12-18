@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Header } from "../../index";
 // import images from "../../assets/images/images";
 import './Cart.css'
 
@@ -7,6 +8,7 @@ const Cart = () => {
 
     return (
         <>
+            <Header />
             <section className="pt-5 cart">
                 <div className="mileone-container pt-5">
                     <h2>Cart <span>(1 Item)</span></h2>
@@ -46,8 +48,8 @@ const Cart = () => {
 
                     <div className="row buttons">
                         <div className="col-12 text-end">
-                            <Link to="/"><button className="continue">Continue Shopping</button></Link>
-                            <Link to=""><button className="pay">Pay Now</button></Link>
+                            <Link to="/"><button className="continue mb-3">Continue Shopping</button></Link>
+                            <Link to=""><button className="pay mb-3">Pay Now</button></Link>
                         </div>
                     </div>
 

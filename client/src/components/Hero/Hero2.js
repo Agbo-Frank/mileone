@@ -6,7 +6,7 @@ const Hero1 = () => {
 
   return (
     <>
-        <section className="hero1">
+        <section className="hero1 hero2">
             <div className="hero1-container">
                 <div className="row hero1-content">
                     <div className="col-lg-8">

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import images from "../../../assets/images/images";
-import { Hero1, HotDeals } from "../../../components";
+import { Header, Hero1, HotDeals } from "../../../components";
 import { Link } from "react-router-dom";
 import './Home.css'
 
@@ -8,6 +8,7 @@ const Home = () => {
 
   return (
     <>
+        <Header />
         <Hero1 />
         <section className="home-brand">
             <div className="home-container">

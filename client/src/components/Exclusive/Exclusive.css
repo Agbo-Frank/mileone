@@ -1,14 +1,14 @@
-.hotdeals-container{
+.exclusive-container{
     width: 80%;
     margin: 0 auto;
 }
-.hotdeals{
+.exclusive{
     padding: 20px;
 }
-.hotdeals-content{
+.exclusive-content{
     padding-bottom: 100px;
 }
-.hotdeals .hotdeals-content .mile-food-card h4{
+.exclusive .exclusive-content .mile-food-card h4{
     font-style: normal;
     font-weight: bold;
     font-size: 15px;
@@ -16,7 +16,7 @@
     text-indent: 1px;
     color: #000000;
 }
-.hotdeals .hotdeals-content .mile-food-card h5{
+.exclusive .exclusive-content .mile-food-card h5{
     font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -26,13 +26,13 @@
     color: #000000;
 
 }
-.hotdeals .hotdeals-content .mile-food-card h5 i{
+.exclusive .exclusive-content .mile-food-card h5 i{
     color: #F48C06;
 }
-.hotdeals .hotdeals-content .mile-food-card .star{
+.exclusive .exclusive-content .mile-food-card .star{
     width: 100px;
 }
-.hotdeals .hotdeals-content .mile-food-card p{
+.exclusive .exclusive-content .mile-food-card p{
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
@@ -42,4 +42,11 @@
     padding: 10px 0;
     padding-bottom: 10px;
     color: #6A040F;
+}
+
+.exclusive .exclusive-content .mile-card{
+    margin-bottom: 170px;
+}
+.exclusive .exclusive-content .mile-food-card{
+    margin-top: -30px;
 }

@@ -68,7 +68,7 @@
     font-weight: bold;
     font-size: 48px;
     line-height: 55px;
-    padding: 0 200px;
+    /* padding: 0 200px; */
     padding-bottom: 30px;
     text-align: center;
     text-transform: capitalize;
@@ -97,7 +97,6 @@
     font-size: 18px;
     line-height: 25px;
     text-align: center;
-    padding: 0 70px;
     color: rgba(0, 0, 0, 0.5);
 }
 
@@ -165,7 +164,11 @@ text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 
 
 .about-section-4 .mile-card{
-    margin-bottom: 120px;
+    margin-bottom: 150px;
+}
+
+.about-section-4 .mile-card .mile-food-card{
+    margin-top: -30px;
 }
 
 .about-section-4 .mile-card .mile-food-card .items{
@@ -249,7 +252,7 @@ text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
-    line-height: 0px;
+    line-height: 25px;
     text-transform: capitalize;
     padding-top: 20px;
     padding-bottom: 30px;
@@ -289,3 +292,41 @@ text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
     color: #000000;
     padding: 30px;
 }
+
+@media screen and (max-width: 760px){
+    .all-dishes{
+        display: none;
+    }
+}
+@media screen and (max-width: 768px){
+    .about-section-4 .mileone-container .menu-item .mile-food-card{
+        padding: 10px;
+    }
+    .about-section-4 .mile-card .mile-food-card .mile-addcart{
+        padding: 1px 30px;
+    }
+    .about-section-4 .mile-card{
+        margin-bottom: 170px;
+    }
+    .about-section-3 h1{
+        font-size: 30px;
+        line-height: 35px;
+    }
+
+    .about-section-4 h1 {
+        font-size: 30px;
+        line-height: 35px;
+    }
+}
+
+@media screen and (min-width: 1300px){
+    .about-section-3 h1{
+        padding: 0 200px;
+    }
+    .about-section-3 p{
+        padding: 0 70px;
+    }
+}
+
+
+

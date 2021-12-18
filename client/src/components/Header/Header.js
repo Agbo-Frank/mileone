@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import images from "../../assets/images/images";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import './Header.css'
 
 const Header = () => {
@@ -62,19 +62,21 @@ const Header = () => {
                         </ul>
                     </div>
 
-                    <div className="col-lg-6 col-md-5 col-12">
+                    <div className="col-lg-5 col-md-5 col-12">
                         <div className="box">
                             <input className="search-control" type="search" placeholder="Search" aria-label="Search" />
                             <i className="fas fa-search"></i>
                         </div>
                     </div>
-                    <div className="col-lg-3 col-md-4 col-12">
-                        <ul className="">
-                            <li className="active"><Link to="/">Home</Link></li>
-                            <li><Link to="/about">About Us</Link></li>
-                            <Link to="/cart"><i class="fas fa-cart-plus i-icon"></i></Link>
-                            <Link to="/login"><button type="button">Sign In <i className="fas fa-user-plus"></i></button></Link>
-                        </ul>
+                    <div className="col-lg-4 col-md-4 col-12 menu-link" >
+                        <div>
+                            <ul className="">
+                                <li><NavLink activeClassName="active" to="/">Home</NavLink></li>
+                                <li><NavLink activeClassName="active" to="/about">About Us</NavLink></li>
+                                <Link to="/cart"><i class="fas fa-cart-plus i-icon"></i></Link>
+                                <Link to="/login"><button type="button">Sign In <i className="fas fa-user-plus"></i></button></Link>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </header>

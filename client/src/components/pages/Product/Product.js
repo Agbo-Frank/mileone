@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import images from "../../../assets/images/images";
-import { Others, Special } from "../../../components";
+import { Header, Others, Special } from "../../../components";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import './Product.css'
@@ -26,15 +26,16 @@ const Product = () => {
     };
 
     return (
-        <>
-            <section className="mb-5">
-                <div className="mileone-container">
+        <>  
+            <Header />
+            <section className="mb-5 mile-product">
+                <div className="">
                     <div className="row pt-5">
-                        <div className="col-lg-2 col-md-2 col-6"></div>
-                        <div className="col-lg-8 col-md-7 col-6">
+                        <div className="col-lg-2 col-md-2 col-1"></div>
+                        <div className="col-lg-8 col-md-7 col-10">
                             <img src={images.photo} />
                         </div>
-                        <div className="col-lg-2 col-md-3 col-6 mt-4">
+                        <div className="col-lg-2 col-md-3 col-1 mt-4 product-image">
                             <div className="mile-card">
                                 <img src={images.brandfood2} alt="image" />
                                 <div className="mile-food-card">
@@ -54,7 +55,7 @@ const Product = () => {
 
                 <div className="mile-product-section-container">
                     <div className="row mt-3">
-                        <div className="col-10">
+                        <div className="col-9">
                             <div className="flex">
                                 <div>
                                     <img src={images.diamond} alt="image" />
@@ -66,7 +67,7 @@ const Product = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-2 mt-3">
+                        <div className="col-3 mt-3">
                             <button className="mile-btn-follow1">Follow</button>
                         </div>
                     </div>
@@ -107,7 +108,7 @@ const Product = () => {
                         </div>
                         <div className="customer_feedback_content">
                             <div className="row">
-                                <div className="col-3">
+                                <div className="col-lg-4 col-md-4 col-12">
                                     <h4>Product Ratings (xxx)</h4> 
                                     <div className="rating-box mt-4">
                                         <h1>2.7</h1>
@@ -178,9 +179,9 @@ const Product = () => {
                                         </ul>
                                     </div>
                                 </div>
-                                <div className="col-9">
+                                <div className="col-lg-8 col-md-8 col-12">
                                     <div className="reviews">
-                                        <h4>Product Reviews (xxx)</h4>
+                                        <h4 className="pr">Product Reviews (xxx)</h4>
                                         <div className="mt-3 review-box">
                                             <img src={images.star} className="mb-4" />
                                             <p>Lorem lorem ispum lotat lorem  lorem Maple Leaf Cake is a mixture of Lor
