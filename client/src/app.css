@@ -7,6 +7,10 @@ body{
 img{
     width: 100%;
 }
+.mileone-container{
+    width: 80%;
+    margin: 0 auto;
+}
 .flex{
     display: flex;
     flex-direction: row;
@@ -82,4 +86,26 @@ img{
     padding: 5px 30px;
     color: #03071E;
     border-radius: 15px;
+}
+
+.mile-btn-follow{
+    background-color: #F48C06;
+    color: #fff;
+    box-shadow: -1px 2px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;   
+    padding: 0 10px;
+    font-size: 14px;
+    line-height: 24px;
+    text-indent: 1px;
+}
+
+.mile-btn-follow1{
+    background-color: #F48C06;
+    color: #fff;
+    box-shadow: -1px 2px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;   
+    padding: 4px 20px;
+    font-size: 16px;
+    line-height: 24px;
+    text-indent: 1px;
 }

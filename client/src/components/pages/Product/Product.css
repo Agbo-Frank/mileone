@@ -1,0 +1,174 @@
+.mileone-container .mile-food-card{
+    text-align: center;
+}
+
+.mileone-container .mile-food-card .star{
+    width: 100px;
+    margin: 0 auto;
+}
+.mileone-container .mile-food-card p{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 13px;
+    text-indent: 1px;
+    text-transform: capitalize;
+    padding: 10px 0;
+    padding-bottom: 10px;
+    color: #6A040F;
+}
+
+.mile-product-section-container{
+    width: 52%;
+    margin: 0 auto;
+}
+
+.mile-product-section-container img{
+    width: 122px;
+    height: 124px;
+}
+
+.mile-product-section-container .text-content h4{
+    font-family: 'Ubuntu', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-indent: 1px;
+    color: #D00000;
+}
+
+.mile-product-section-container .text-content p{
+    font-family: 'Ubuntu', sans-serif;
+    text-align: justify;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-indent: 1px;
+    color: #03071E;
+}
+
+.top_companies{
+    border: 1px solid #03071E;
+    box-sizing: border-box;
+}
+
+.top_companies h3{
+    font-family: 'Ubuntu', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-indent: 1px;
+    color: #D00000;
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+
+.top_companies .top_companies_slider img{
+    width: 120px;
+    height: 120px;
+}
+
+.top_companies .top_companies_slider .owl-carousel{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.customer_feedback_box{
+    background: #E9F3FD;
+    box-shadow: -1px -1px 4px rgba(0, 0, 0, 0.25);
+    border-bottom: 1px solid #03071E;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-indent: 1px;
+    color: #D00000;
+}
+
+.customer_feedback_content{
+    background: #ffffff;
+    padding: 20px;
+}
+
+.customer_feedback_content .rating-box{
+    background: #FFFFFF;
+    box-shadow: -1px 1px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    text-align: center;
+    padding: 30px;
+}
+
+.customer_feedback_content .rating-box h1{
+    font-family: 'Ubuntu', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    padding-bottom: 20px;
+    line-height: 24px;
+    text-indent: 1px;
+    color: #E85D04;
+    text-shadow: -1px 2px 5px rgba(0, 0, 0, 0.25);
+}
+
+.customer_feedback_content .rating-box img{
+    width: 111px;
+    height: 19px;
+}
+
+.customer_feedback_content .rating ul{
+    padding: 0 10px;
+}
+
+.customer_feedback_content .rating{
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-indent: 1px;
+    color: #000000;
+}
+
+.customer_feedback_content .rating img{
+    width: 23px;
+    height: 23px;
+}
+
+.customer_feedback_content .rating .progress-bar{
+    background-color: #E85D04;
+}
+
+.reviews{
+    font-family: 'Ubuntu', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-indent: 1px;
+    color: #D00000;
+}
+
+.reviews .review-box{
+    border-bottom: 1px solid #03071E;
+    padding-bottom: 15px;
+}
+
+.reviews img{
+    width: 76px;
+    height: 13px;
+}
+
+.reviews p{
+    font-family: 'Ubuntu', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-indent: 1px;
+    color: #03071E;
+}

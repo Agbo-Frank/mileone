@@ -1,0 +1,113 @@
+.auth .login {
+    position: relative;
+}
+.auth .matrix-1{
+    background: rgba(186, 220, 255, 0.6);
+    border-radius: 20px;
+    transform: matrix(-0.77, 0.2, 1.27, 0.91, 0, 0);
+    width: 933.05px;
+    height: 773.82px;
+    position: absolute;
+    top: 300px;
+    left: -500px;
+    z-index: -9;
+}
+
+.auth .matrix-2{
+    background: #DDEEFF;
+    border-radius: 20px;
+    transform: matrix(-0.77, 0.2, 1.27, 0.91, 0, 0);
+    width: 933.05px;
+    height: 773.82px;
+    position: absolute;
+    top: 200px;
+    left: -500px;
+    z-index: -9;
+}
+
+.auth .matrix-3{
+    background: #DDEEFF;
+    border-radius: 20px;
+    transform: matrix(0.77, 0.23, -1.15, 0.91, 0, 0);
+    width: 933.05px;
+    height: 773.82px;
+    position: absolute;
+    top: 200px;
+    right: -400px;
+    z-index: -10;
+}
+
+.auth .matrix-4{
+    background: rgba(186, 220, 255, 0.6);
+    border-radius: 20px;
+    transform: matrix(0.77, 0.23, -1.15, 0.91, 0, 0);
+    width: 933.05px;
+    height: 773.82px;
+    position: absolute;
+    top: 300px;
+    right: -400px;
+    z-index: -9;
+}
+
+.auth h1{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    text-indent: 1px;
+    color: #F48C06;
+}
+
+.auth{
+    text-align: center;
+}
+
+/* Inputs */
+.auth form{
+    width: 80%;
+    margin: 0 auto;
+}
+.auth .login{
+    /* border-right: 1px solid rgb(26, 25, 25); */
+}
+.form-control{
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    border-bottom: 1px solid #424242;
+    margin-top: 40px;
+}
+
+.auth .buttons{
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.auth .login-btn{
+    color: #ffffff;
+    font-weight: 600;
+    padding: 10px 0;
+    width: 100%;
+}
+
+.auth .normal{
+    background: rgba(244, 140, 6, 0.75);
+    box-shadow: -1px 2px 7px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}
+
+.auth .google{
+    color: #000!important;
+    background: #FFFFFF;
+    box-shadow: -1px 2px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}
+
+.auth .wrap{
+    justify-content: center;
+}
+
+.auth button img{
+    width: 24px;
+    height: 24px;
+}

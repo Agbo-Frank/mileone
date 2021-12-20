@@ -1,0 +1,41 @@
+.mileone-container .brands img{
+    width: 122px;
+    height: 124px;
+}
+
+.mileone-container .brands h4{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    text-indent: 1px;
+    color: #370617;
+}
+
+.mileone-container .brands p{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    text-indent: 1px;
+    color: #000000;
+}
+
+.mileone-container .brands ul li{
+    display: inline;
+    margin-right: 100px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    text-indent: 1px;
+    color: #03071E;
+}
+.mileone-container .brands ul .active{
+    background: #F48C06;
+    box-shadow: -1px 2px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    color: #fff;
+    padding: 5px 20px;
+}
