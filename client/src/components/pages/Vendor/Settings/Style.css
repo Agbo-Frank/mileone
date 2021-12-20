@@ -1,0 +1,137 @@
+/* settings */
+.settings .mileone-container a{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #370617;
+}
+
+
+.settings .mileone-container .active{
+    color: #9D0208!important;
+    border-bottom: 1px solid #9D0208!important;
+}
+
+/* Profile settings */
+.profile form .flex{
+    margin-bottom: 20px;
+    flex-direction: column;
+}
+
+.profile form .flex label{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    text-indent: 1px;
+    color: #370617;
+    text-shadow: 0px -1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.profile form .flex input{
+    margin-top: 6px;
+    padding: 8px 10px;
+    border: 1px solid #370617;
+}
+
+.profile form .flex textarea{
+    margin-top: 6px;
+    padding: 8px 10px;
+    border: 1px solid #370617;
+}
+
+/* photo settings */
+.photo .profile-image{
+    background-color: #C4C4C4;
+    border-radius: 50%;
+    width: 169px;
+    height: 169px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.photo form label{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    text-indent: 1px;
+    color: #370617;
+    text-shadow: 0px -1px 2px rgba(0, 0, 0, 0.25);
+    padding-bottom: 10px;
+}
+
+.photo form .input{
+    position: relative;
+    width: 100%;
+    height: 60px;
+    cursor: pointer;
+}
+
+.photo form .input::after{
+    content: attr(data-text);
+    font: 18px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #ffffff;
+    padding: 5px 15px;
+    display: block;
+    width: calc(100% - 40px);
+    pointer-events: none;
+    z-index: 20;
+    line-height: 40px;
+    color: #999;
+    font-weight: 300;
+    filter: drop-shadow(-1px 2px 5px rgba(0, 0, 0, 0.25));
+    border: 1px solid #D00000;
+}
+
+.photo form .input::before{
+    content: "Upload File";
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    height: 52px;
+    background: #D00000;
+    color: #ffffff;
+    font-weight: 700;
+    z-index: 25;
+    font-size: 16px;
+    line-height: 60px;
+    padding: 0 15px;
+    text-transform: uppercase;
+    pointer-events: none;
+    transition: 0.5s ease-in-out;
+}
+
+/* privacy */
+
+.privacy h3{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    text-indent: 1px;
+    color: #9D0208;
+    text-shadow: 0px -1px 2px rgba(0, 0, 0, 0.25);
+    padding-bottom: 20px;
+}
+
+.privacy p{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 25px;
+    color: #000000;
+    text-align: justify;
+    padding-bottom: 20px;
+}
+
+.privacy button{
+    background: #e85d04;
+    border-radius: 20px;
+    padding: 8px 40px;
+    color: #ffffff;
+}

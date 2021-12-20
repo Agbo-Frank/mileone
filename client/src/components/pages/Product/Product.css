@@ -172,3 +172,19 @@
     text-indent: 1px;
     color: #03071E;
 }
+
+@media screen and (max-width: 768px){
+    .mile-product{
+        padding-top: 160px;
+    }
+    .product-image{
+        display: none;
+    }
+    .mile-product-section-container{
+        width: 80%;
+        margin: 0 auto;
+    }
+    .pr{
+        padding-top: 20px;
+    }
+}

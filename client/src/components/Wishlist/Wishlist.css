@@ -1,0 +1,73 @@
+.wishlist{
+    padding: 100px 0;
+}
+
+.wishlist .row .box {
+    width: 100%;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    padding: 15px 30px;
+    background: #E9F3FD;
+    border: 1px solid #03071E;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+
+.wishlist .row .box > i{
+    font-size: 18px;
+    color: #E85D04;
+}
+.wishlist .row .box > input {
+    flex: 1;
+    height: 26px;
+    width: 566px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background-color: transparent;
+}
+.wishlist .row .box > input::placeholder{
+    color: #370617;
+}
+
+.wishlist .mile-card .mile-food-card .items{
+    text-align: left;
+}
+
+.wishlist .mile-card .mile-food-card .items img{
+    margin: 0;
+}
+
+.wishlist .mile-card .mile-food-card .items .button{
+    text-align: center;
+}
+
+.wishlist .mile-card .mile-food-card .items .button button{
+    padding: 1px 60px;
+}
+
+@media screen and (max-width: 768px){
+    .wishlist{
+        padding: 200px 0;
+    }
+    .wishlist .mile-food-card{
+        padding: 10px 10px;
+    }
+
+    .wishlist .mile-card .mile-food-card .items .button button{
+        padding: 1px 30px;
+    }
+    .wishlist .row .search-width{
+        width: 100%!important;
+    }
+    .wishlist .row .box > input{
+        width: 80px;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .wishlist .row .box > input{
+        width: 90px;
+    }
+}

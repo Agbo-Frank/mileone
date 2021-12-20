@@ -3,6 +3,7 @@
 body{
     background-color: #E9F3FD;
     font-family: 'Ubuntu', sans-serif;
+    /* overflow: hidden; */
 }
 img{
     width: 100%;
@@ -47,13 +48,14 @@ img{
 .mile-card{
     position: relative;
     padding: 0!important;
+    margin-bottom: 50px;
 }
 .mile-food-card{
     background: #E8ECFE;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
     border-top: 1px solid #03071E;
     width: 100%;
-    margin-top: -70px;
+    margin-top: -50px;
     padding: 10px 0;
     position: absolute;
 }
@@ -62,6 +64,7 @@ img{
     border-radius: 15px;
     padding: 3px 10px;
     margin-right: 5px;
+    margin-bottom: 10px;
     border: none;
     font-style: normal;
     font-weight: normal;
@@ -108,4 +111,14 @@ img{
     font-size: 16px;
     line-height: 24px;
     text-indent: 1px;
+}
+
+@media screen and (max-width: 768px){
+    .mile-card{
+        margin-bottom: 80px;
+    }
+    .mileone-container{
+        width: 90%;
+        margin: 0 auto;
+    }
 }
