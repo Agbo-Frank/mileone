@@ -52,66 +52,63 @@
     right: -400px;
     z-index: -9;
 }
-
-.auth h1{
-    font-style: normal;
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 24px;
-    text-indent: 1px;
-    color: #F48C06;
+.auth_container{
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
+    margin: 4.5rem auto;
 }
-
-.auth{
-    text-align: center;
-}
-
-/* Inputs */
-.auth form{
-    width: 80%;
-    margin: 0 auto;
-}
-.auth .login{
-    /* border-right: 1px solid rgb(26, 25, 25); */
-}
-.form-control{
-    border: none;
-    border-radius: 0;
+.auth_container > div{
     background-color: transparent;
-    border-bottom: 1px solid #424242;
-    margin-top: 40px;
+    padding: 15px 5rem;  
+    width: 100%; 
 }
-
-.auth .buttons{
-    margin-top: 50px;
-    margin-bottom: 100px;
+.auth_container > div:first-child{
+    border-right: 1px solid black;
 }
-
-.auth .login-btn{
-    color: #ffffff;
-    font-weight: 600;
-    padding: 10px 0;
+.auth_container > div > h1{
+    color: #F48C06;
+    text-align: center;
+    font-size: 20px;
+}
+.auth_container > div > form input{
+    border: none;
+    outline: none;
+    border-bottom: 1px grey solid;
+    padding: 7px 5px;
     width: 100%;
+    background-color: transparent;
+    margin-top: 1rem;
 }
-
-.auth .normal{
-    background: rgba(244, 140, 6, 0.75);
-    box-shadow: -1px 2px 7px rgba(0, 0, 0, 0.25);
-    border-radius: 15px;
+.password{
+    display: flex;
+    flex-direction: column;
 }
-
-.auth .google{
-    color: #000!important;
-    background: #FFFFFF;
-    box-shadow: -1px 2px 8px rgba(0, 0, 0, 0.25);
-    border-radius: 15px;
+.password small{
+    margin-left: auto;
+    color: grey;
 }
-
-.auth .wrap{
+.buttons{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 2rem auto;
     justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
 }
-
-.auth button img{
-    width: 24px;
-    height: 24px;
+.buttons button{
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    padding: 5px 15px;
+    background-color: white;
+    color: #6A040F;
+    font-weight: bold;
+    box-shadow: -1px 2px 7px rgba(0, 0, 0, 0.25);
+}
+.buttons button:first-child{
+    color: white;
+    background-color: rgba(244, 140, 6, 0.75);
 }

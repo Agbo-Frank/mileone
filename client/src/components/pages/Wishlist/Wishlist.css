@@ -1,0 +1,18 @@
+.wishlist{
+    width: 80%;
+    margin-left: auto;
+}
+.wishlist .mile-label{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: #D20F10;
+    margin: 1rem 0;
+}
+.wishlist > div:last-child{
+    display: grid;
+    grid-template-columns:  repeat(auto-fit, minmax(17rem, 1fr));
+    gap: 20px;
+}

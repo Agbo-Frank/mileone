@@ -3,9 +3,11 @@ var mongoose = require('mongoose')
 var vendorSchema = new mongoose.Schema({
     name: String,
     email: String,
-    vendorId: String,
     password: String,
     biography: String,
+    address: String,
+    image: String,
+    logo: String,
     contacts: [{
         media: String,
         link: String

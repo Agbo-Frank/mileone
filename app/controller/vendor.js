@@ -2,7 +2,7 @@ var Vendor = require('../model/Vendor')
 var User = require('../model/User')
 var jwt = require('jsonwebtoken');
 var bcrypt = require('bcrypt')
-var geoCoder = require('../utils/geoCoder')
+// var geoCoder = require('../utils/geoCoder')
 require('dotenv').config()
 
 function createToken(id){
@@ -13,13 +13,13 @@ var coordinates = []
 module.exports.createVendor = async (req, res) => {
     var { name, email, password, biography, contacts, location } = req.body
 
-    if(Array.isArray(location)){
-        coordinates = [ ...location ]
-    }
-    else{
-        const coords = await geoCoder.geocode(location);
-        coordinates = [ ...coords ]
-    }
+    // if(Array.isArray(location)){
+    //     coordinates = [ ...location ]
+    // }
+    // else{
+    //     const coords = await geoCoder.geocode(location);
+    //     coordinates = [ ...coords ]
+    // }
 
     var {name, email, password, contacts, location} = req.body
     if(!email && !password && !location){
@@ -43,13 +43,13 @@ module.exports.createVendor = async (req, res) => {
             location: ''
         }})
     }
-    else if(!location){
-        res.status(400).json({error: {
-            email: '',
-            password: '',
-            location: 'please enter your location'
-        }})
-    }
+    // else if(){
+    //     res.status(400).json({error: {
+    //         email: '',
+    //         password: '',
+    //         location: 'please enter your location'
+    //     }})
+    // }
     else {
         Vendor.findOne({ email })
           .then(user => {
@@ -65,9 +65,9 @@ module.exports.createVendor = async (req, res) => {
                     name, email, 
                     password, biography,
                     contacts,
-                    location:{
-                        coordinates: [coordinates[0].latitude, coordinates[0].longitude]
-                    }
+                    // location:{
+                    //     coordinates: [coordinates[0].latitude, coordinates[0].longitude]
+                    // }
                 })
                 bcrypt.genSalt(10, function(err, salt) {
                     bcrypt.hash(password, salt, function(err, hash) {

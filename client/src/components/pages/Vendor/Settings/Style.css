@@ -1,137 +1,130 @@
-/* settings */
-.settings .mileone-container a{
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 24px;
-    color: #370617;
+
+.settings{
+    margin-top: 60px;
+    padding: 3rem 7rem;
 }
-
-
-.settings .mileone-container .active{
-    color: #9D0208!important;
-    border-bottom: 1px solid #9D0208!important;
-}
-
-/* Profile settings */
-.profile form .flex{
-    margin-bottom: 20px;
-    flex-direction: column;
-}
-
-.profile form .flex label{
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 24px;
-    text-indent: 1px;
-    color: #370617;
-    text-shadow: 0px -1px 2px rgba(0, 0, 0, 0.25);
-}
-
-.profile form .flex input{
-    margin-top: 6px;
-    padding: 8px 10px;
-    border: 1px solid #370617;
-}
-
-.profile form .flex textarea{
-    margin-top: 6px;
-    padding: 8px 10px;
-    border: 1px solid #370617;
-}
-
-/* photo settings */
-.photo .profile-image{
-    background-color: #C4C4C4;
-    border-radius: 50%;
-    width: 169px;
-    height: 169px;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-}
-
-.photo form label{
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 24px;
-    text-indent: 1px;
-    color: #370617;
-    text-shadow: 0px -1px 2px rgba(0, 0, 0, 0.25);
-    padding-bottom: 10px;
-}
-
-.photo form .input{
+.settings > .settings-header{
     position: relative;
+    height: 80px;
     width: 100%;
-    height: 60px;
-    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
 }
-
-.photo form .input::after{
-    content: attr(data-text);
-    font: 18px;
+.settings-header h1{
+    font-size: 24px;
+}
+.settings > .settings-header > div{
     position: absolute;
-    top: 0;
-    left: 0;
-    background: #ffffff;
-    padding: 5px 15px;
-    display: block;
-    width: calc(100% - 40px);
-    pointer-events: none;
-    z-index: 20;
-    line-height: 40px;
-    color: #999;
-    font-weight: 300;
-    filter: drop-shadow(-1px 2px 5px rgba(0, 0, 0, 0.25));
-    border: 1px solid #D00000;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+    gap: 3rem;
+    color: grey;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
 }
-
-.photo form .input::before{
-    content: "Upload File";
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: inline-block;
-    height: 52px;
-    background: #D00000;
-    color: #ffffff;
-    font-weight: 700;
-    z-index: 25;
-    font-size: 16px;
-    line-height: 60px;
-    padding: 0 15px;
-    text-transform: uppercase;
-    pointer-events: none;
-    transition: 0.5s ease-in-out;
-}
-
-/* privacy */
-
-.privacy h3{
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 24px;
-    text-indent: 1px;
+.settings > .settings-header > div > div.active{
     color: #9D0208;
-    text-shadow: 0px -1px 2px rgba(0, 0, 0, 0.25);
-    padding-bottom: 20px;
+    border-bottom: 2px solid #9D0208;
 }
-
-.privacy p{
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 25px;
-    color: #000000;
-    text-align: justify;
-    padding-bottom: 20px;
+.profile{
+    display: flex;
+    width: 100%;
+    gap: 3rem;
+    padding: 2rem 0;
 }
-
-.privacy button{
-    background: #e85d04;
+.input-field{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 3px;
+    margin-bottom: 12px;
+}
+.input-field input, textarea, select{
+    width: 100%;
+    border: 1px solid #370617;
+    padding: 5px;
+    outline: none;
+    font-size: small;
+}
+textarea{
+    height: 80px;
+    resize: none;
+}
+.location{
+    display: flex;
+    background-color: white;
+    border: 1px solid #370617;
+    width: 100%;
+    height: 40px;
+    justify-content: space-between;
+}
+.location input{
+    border: none;
+    outline: none;
+    width: 70%;
+    height: 100%;
+}
+.location button{
+    border: none;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 30%;
+    height: 100%;
+    padding: 0 10px;
+}
+.photo{
+    display: flex;
+    width: 80%;
+    margin: 4rem auto;
+    justify-content: space-between;
+    gap: 1rem;
+}
+.upload{
+    background-color: white;
     border-radius: 20px;
-    padding: 8px 40px;
-    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    width: 50%;
+    height: 250px;
+}
+.upload > img{
+    width: 80%;
+    object-fit: cover;
+    height: auto;
+    border-radius: 20px;
+}
+.upload i{
+    font-size: 64px;
+    color: grey;
+}
+.upload input{
+    display: none;
+}
+.upload label{
+    font-weight: bold;
+    color: #D00000;
+}
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #D00000;
+    color: white;
+    margin-left: auto;
+    border: none;
+    outline: none;
+    width: 150px;
+    padding: 8px 0;
+    border-radius: 30px;
+    transition: all .5s linear;
+}
+.btn:hover{
+    color: white;
+}
+.btn:hover span{
+    transform: translateX(10px);
 }

@@ -1,12 +1,15 @@
 var User = require('../../model/User')
 
 module.exports = {
-    addToCart: ({itemId, quantity, userId}) => {
+    addToCart: ({itemId}, req) => {
+        if(!req.isAuth){
+            throw new Error('Unauthorized')
+        }
+        const userId = req.user
        return User.updateOne({ _id: userId}, {
             $addToSet: {
                 cart: {
-                    itemId,
-                    quantity 
+                    itemId 
                 }
             }
         })
@@ -17,7 +20,11 @@ module.exports = {
                 throw err
             })
     },
-    removeFromCart: ({itemId, userId}) => {
+    removeFromCart: ({itemId}, req) => {
+        if(!req.isAuth){
+            throw new Error('Unauthorized')
+        }
+        const userId = req.user
         return User.updateOne({ _id: userId}, {
             $pull: {
                 cart: {
@@ -26,7 +33,7 @@ module.exports = {
             }
         })
             .then(result => {
-                return result.acknowledged && {message: "successfully removed"}
+                return result.acknowledged && {message: `${itemId} successfully removed`}
             })
             .catch(err => {
                 throw err

@@ -7,7 +7,25 @@ body{
     width: 100%;
     height: auto;
     padding-top: 60px;
-    background: linear-gradient(180deg, rgba(255, 186, 8, 0) 0%, #FFBA08 100%);
+    background: linear-gradient(180deg, #E9F3FD 10%, #FFBA08 90%);
+}
+.hero1 ul{
+    list-style: none;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin: 40px 0 25px 0;
+}
+.hero1 ul li{
+    border-radius: 15px;
+    padding: 5px 20px;
+    text-align: center;
+    width: 100px;
+}
+.hero1 ul li:hover{
+    background: #F48C06;
+    color: #fff;
+    box-shadow: -1px 2px 8px rgba(0, 0, 0, 0.3);
 }
 .hero2{
     padding-top: 160px;
@@ -26,34 +44,67 @@ body{
     display: inline;
     margin-right: 30px;
 }
-.hero1 .hero1-items .active{
-    background: #F48C06;
-    box-shadow: -1px 2px 8px rgba(0, 0, 0, 0.3);
-    border-radius: 15px;
-    color: #fff;
-    padding: 5px 20px;
-    text-align: center;
-    width: 100px;
-}
 .hero1 .hero1-content{
+    display: flex;
     padding-bottom: 20px;
 }
-.hero1 .hero1-content h1{
-    font-family: 'Ubuntu', sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 55px;
-    line-height: 63px;
-    text-transform: capitalize;
-    color: #000000;
+.hero1 .hero1-content div:first-child{
+    margin: auto 0;
+    width: 66.67%;
+}
+.hero1 .hero1-content div:first-child h1{
+    font-size: 54px;
+    font-weight: 700;
+}
+.hero1 .hero1-content div:last-child{
+    margin: auto 0;
+    width: 33.33%;
+}
+.hero1 .hero1-content div:last-child img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 .hero1 .hero1-content h1 span{
     color: #EC6083;
 }
-
-@media screen and (max-width: 768px){
-    .hero1{
-        padding-top: 160px;
+@media screen and (max-width: 1020px){
+    .hero1 .hero1-content div:first-child h1{
+        font-size: 45px;
+    }
+}
+@media screen and (max-width: 920px){
+    .hero1 .hero1-content div:first-child h1{
+        font-size: 35px;
+    }
+    .hero1 ul{
+        margin: 25px 0 15px 0;
+    }
+    .hero1 ul li{
+        padding: 5px 10px;
+        width: fit-content;
+        font-size: 14px;
+    }
+    .hero1 ul li:hover{
+        background: #F48C06;
+        color: #fff;
+        box-shadow: -1px 2px 8px rgba(0, 0, 0, 0.3);
+    }
+}
+@media screen and (max-width: 820px){
+    .hero1 .hero1-content div:first-child h1{
+        font-size: 25px;
+    }
+}
+@media screen and (max-width: 520px){
+    .hero1 ul{
+        display: none;
+    }
+    .hero1 .hero1-content{
+        margin: 35px 0;
+    }
+    .hero1 .hero1-content div:first-child h1{
+        font-size: 20px;
     }
     .hero2{
         padding-top: 200px;

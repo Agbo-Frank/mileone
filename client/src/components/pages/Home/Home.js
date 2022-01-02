@@ -1,170 +1,45 @@
-import React, { useState } from "react";
+import { useReactiveVar, useQuery } from '@apollo/client'
+import React,{useState} from 'react';
 import images from "../../../assets/images/images";
-import { Header, Hero1, HotDeals } from "../../../components";
-import { Link } from "react-router-dom";
+import { BrandSection, Header, Hero1, Section } from "../../../components";
+import LoginPop from '../../LoginPop/LoginPop'
+import {AuthVar} from '../../../Apollo/reactiveVar/Auth'
+import {GET_PRODUCTS, GET_VENDORS} from '../../../Apollo/operations/Queries'
+import Carousel from '../../Carousel/Carousel'
 import './Home.css'
+import Alert from '../../Alert/Alert'
 
 const Home = () => {
-
+    const user = useReactiveVar(AuthVar)
+    const {data, loading, error } = useQuery(GET_PRODUCTS)
+    const {data: vendors, loading: loadVendors, error:  err } = useQuery(GET_VENDORS)
+    console.log(data)
+    console.log(vendors?.getVendors)
+    const products = data?.getProducts
+    const vendor = vendors?.getVendors
+    const [toggled, setToggled] = useState(false)
+    const [alert, setAlert] = useState({
+      message: '',
+      type: false,
+      show: false
+    })
+  if(loading){
+    return <div>Loading...</div>
+  }
+  if(error){
+    return <div> {error}</div>
+  }
   return (
     <>
-        <Header />
+        <LoginPop toggle={[toggled, setToggled]}/>
+        <Header user={user[0]?.user}/>
         <Hero1 />
-        {/* <Menu/> */}
-        <section className="home-brand">
-            <div className="home-container">
-                <div className="row mile-label">
-                    <div className="col-lg-6 col-md-6 col-6">
-                        Brands
-                    </div>
-                    <div className="col-lg-6 col-md-6 col-6 text-end">
-                        See all
-                    </div>
-                </div>
-                <div className="row home-content">
-                    <div className="col-lg-3 col-md-6 col-6">
-                        <div className="mile-card">
-                            <img src={images.brandfood1} alt="image" />
-                            <Link to="/brand">
-                                <div className="mile-food-card flex">
-                                    <div className="">
-                                        <img src={images.diamond} alt="image"/>
-                                    </div>
-                                    <div className="">
-                                        <h4>Kilimangaro</h4>
-                                        <h5><i class="fas fa-map-marker-alt"></i> Artillery</h5>
-                                        <p>Milk, Egg, Butter, Baking Powder, Sugar, Flour, Chocolate Sauce</p>
-                                    </div>
-                                </div>
-                            </Link>
-                        </div>
-                    </div>
-                    <div className="col-lg-3 col-md-6 col-6">
-                        <div className="mile-card">
-                            <img src={images.brandfood2} alt="image" />
-                            <Link to="/brand">
-                                <div className="mile-food-card flex">
-                                    <div className="">
-                                        <img src={images.diamond} alt="image"/>
-                                    </div>
-                                    <div className="">
-                                        <h4>Kilimangaro</h4>
-                                        <h5><i class="fas fa-map-marker-alt"></i> Artillery</h5>
-                                        <p>Milk, Egg, Butter, Baking Powder, Sugar, Flour, Chocolate Sauce</p>
-                                    </div>
-                                </div>
-                            </Link>
-                        </div>
-                    </div>
-                    <div className="col-lg-3 col-md-6 col-6">
-                        <div className="mile-card">
-                            <img src={images.brandfood1} alt="image" />
-                            <Link to="/brand">
-                                <div className="mile-food-card flex">
-                                    <div className="">
-                                        <img src={images.diamond} alt="image"/>
-                                    </div>
-                                    <div className="">
-                                        <h4>Kilimangaro</h4>
-                                        <h5><i class="fas fa-map-marker-alt"></i> Artillery</h5>
-                                        <p>Milk, Egg, Butter, Baking Powder, Sugar, Flour, Chocolate Sauce</p>
-                                    </div>
-                                </div>
-                            </Link>
-                        </div>
-                    </div>
-                    <div className="col-lg-3 col-md-6 col-6">
-                        <div className="mile-card">
-                            <img src={images.brandfood2} alt="image" />
-                            <Link to="/brand">
-                                <div className="mile-food-card flex">
-                                    <div className="">
-                                        <img src={images.diamond} alt="image"/>
-                                    </div>
-                                    <div className="">
-                                        <h4>Kilimangaro</h4>
-                                        <h5><i class="fas fa-map-marker-alt"></i> Artillery</h5>
-                                        <p>Milk, Egg, Butter, Baking Powder, Sugar, Flour, Chocolate Sauce</p>
-                                    </div>
-                                </div>
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-                <div className="row home-content">
-                    <div className="col-lg-3 col-md-6 col-6">
-                        <div className="mile-card">
-                            <img src={images.brandfood1} alt="image" />
-                            <Link to="/brand">
-                                <div className="mile-food-card flex">
-                                    <div className="">
-                                        <img src={images.diamond} alt="image"/>
-                                    </div>
-                                    <div className="">
-                                        <h4>Kilimangaro</h4>
-                                        <h5><i class="fas fa-map-marker-alt"></i> Artillery</h5>
-                                        <p>Milk, Egg, Butter, Baking Powder, Sugar, Flour, Chocolate Sauce</p>
-                                    </div>
-                                </div>
-                            </Link>
-                        </div>
-                    </div>
-                    <div className="col-lg-3 col-md-6 col-6">
-                        <div className="mile-card">
-                            <img src={images.brandfood2} alt="image" />
-                            <Link to="/brand">
-                                <div className="mile-food-card flex">
-                                    <div className="">
-                                        <img src={images.diamond} alt="image"/>
-                                    </div>
-                                    <div className="">
-                                        <h4>Kilimangaro</h4>
-                                        <h5><i class="fas fa-map-marker-alt"></i> Artillery</h5>
-                                        <p>Milk, Egg, Butter, Baking Powder, Sugar, Flour, Chocolate Sauce</p>
-                                    </div>
-                                </div>
-                            </Link>
-                        </div>
-                    </div>
-                    <div className="col-lg-3 col-md-6 col-6">
-                        <div className="mile-card">
-                            <img src={images.brandfood1} alt="image" />
-                            <Link to="/brand">
-                                <div className="mile-food-card flex">
-                                    <div className="">
-                                        <img src={images.diamond} alt="image"/>
-                                    </div>
-                                    <div className="">
-                                        <h4>Kilimangaro</h4>
-                                        <h5><i class="fas fa-map-marker-alt"></i> Artillery</h5>
-                                        <p>Milk, Egg, Butter, Baking Powder, Sugar, Flour, Chocolate Sauce</p>
-                                    </div>
-                                </div>
-                            </Link>
-                        </div>
-                    </div>
-                    <div className="col-lg-3 col-md-6 col-6">
-                        <div className="mile-card">
-                            <img src={images.brandfood2} alt="image" />
-                            <Link to="/brand">
-                                <div className="mile-food-card flex">
-                                    <div className="">
-                                        <img src={images.diamond} alt="image"/>
-                                    </div>
-                                    <div className="">
-                                        <h4>Kilimangaro</h4>
-                                        <h5><i class="fas fa-map-marker-alt"></i> Artillery</h5>
-                                        <p>Milk, Egg, Butter, Baking Powder, Sugar, Flour, Chocolate Sauce</p>
-                                    </div>
-                                </div>
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <BrandSection vendors={ vendor }/>
+        <section className="section">
+            <Section title="Hot Deals" products={products} toggle={[setToggled, setAlert]}/>
         </section>
-        <HotDeals />
-        <HotDeals />
+        <Carousel products={products} toggle={[setToggled, setAlert]}/>
+        <Alert alert={alert} setAlert={setAlert}/>
     </>
   );
 };

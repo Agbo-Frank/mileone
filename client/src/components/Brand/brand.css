@@ -1,0 +1,79 @@
+.grid{
+    display: grid;
+    grid-template-columns:  repeat(auto-fit, minmax(15rem, 1fr));
+}
+.slide{
+    width: 93%;
+    margin: 20px auto;
+}
+.brand-card{
+    position: relative;
+    padding: 0!important;
+    width: 250px;height: 250px;
+    margin-bottom: 30px;
+    border-top-left-radius: 80px;
+    border-top-right-radius: 80px;
+    overflow: hidden;
+}
+.brand-card > img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    top: 0;left: 0;
+    right: 0;
+}
+.brand-card-info{
+    position: absolute;
+    bottom: 0;left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    background: #E8ECFE;
+    height: 40%;
+    width: 100%;
+    border-top: 1px solid #03071E;
+    padding: 4px 5px;
+    text-decoration: none;
+    color: black;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
+}
+.brand-card-info > div:first-child{
+    align-self: start;
+    width: 25%;
+}
+.brand-card-info > div:first-child img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.brand-card-info > div:last-child{
+    margin-left: auto;
+    width: 65%;
+    line-height: 1;
+    height: 100%;
+    padding: 2px 0;
+}
+.brand-card-info > div > p:first-child{
+    font-weight: bold;
+    font-size: 14px;
+    color: #000000;
+}
+.brand-card-info > div > p:nth-child(2){
+    color: #000000;
+    font-size: 13px;
+}
+.brand-card-info > div > p:nth-child(2) i{
+    color: #E85D04;
+}
+.brand-card-info > div > p:last-child{
+    font-size: 12px;
+    text-transform: capitalize;
+    color: #03071E;
+}
+
+@media screen and (max-width: 520px){
+    .owl-theme{
+        display: block;
+    }
+}

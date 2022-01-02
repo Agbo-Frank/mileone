@@ -1,9 +1,58 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
+import LoginPop from '../../LoginPop/LoginPop'
+import { useLazyQuery, useMutation } from '@apollo/client'
+import { LOGINUSER }from '../../../Apollo/operations/Queries'
+import { SIGNUPUSER }from '../../../Apollo/operations/Mutations'
+import {Auth} from '../../../Apollo/reactiveVar/Auth'
 import images from "../../../assets/images/images";
 import { Header } from "../../index";
 import './Login.css'
 
 const Login = () => {
+    const email = useRef('');
+    const password = useRef('');
+    const email1 = useRef('');
+    const password1 = useRef('');
+
+    const [login] = useLazyQuery(LOGINUSER, {
+        fetchPolicy: "network-only",
+        onCompleted: (data)=> {
+           return Auth({
+                type: 'LOGIN_USER',
+                data
+            })
+        },
+    })
+
+    const [signUp, {loading: register}] = useMutation(SIGNUPUSER, {
+        fetchPolicy: "network-only",
+        onCompleted: (data)=> {
+            return Auth({
+                    type: 'CREATE_USER',
+                    data
+                })
+        }
+    })
+
+    function submitSignUpForm(e){
+        e.preventDefault()
+        signUp({
+            variables: {
+                email: email1.current.value,
+                password: password1.current.value
+            }
+        })
+    }
+
+    function submitLoginForm(e){
+        e.preventDefault()
+        login({
+            variables: {
+                email: email.current.value,
+                password: password.current.value
+            }
+        })
+    }
 
     return (
         <>
@@ -15,23 +64,28 @@ const Login = () => {
                     <div className="matrix-4"></div>
                     <div className="matrix-3"></div>
 
-                    <div className="row pt-5">
-                        <div className="col-lg-6 col-12">
-                            <div className="login pt-5">
-                                <h1 className="pt-5">Login</h1>
-                                <form>
-                                    <div class="mb-3">
-                                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email"/>
+                    <div className="auth_container">
+                            <div>
+                                <h1>Login</h1>
+                                <form onSubmit={(e) => submitLoginForm(e)}>
+                                    <div>
+                                        <input 
+                                        type="email"  
+                                        placeholder="Email"
+                                        ref={email}/>
                                     </div>
-                                    <div class="mb-3">
-                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
+                                    <div className="password">
+                                        <input 
+                                        type="password"  
+                                        placeholder="Password"
+                                        ref={password}/>
+                                        <small>Forgot Password</small>
                                     </div>
-                                    <h3 className="text-end">Forgot Password</h3>
 
                                     <div className="buttons">
-                                        <button type="submit" class="btn login-btn normal mt-5">Login</button>
-                                        <button type="submit" class="btn login-btn google mt-5">
-                                            <div className="flex wrap">
+                                        <button type="submit">Login</button>
+                                        <button>
+                                            <div>
                                                 <img src={images.Google} alt="img"/> 
                                                 Login with Google
                                             </div>
@@ -39,32 +93,34 @@ const Login = () => {
                                     </div>
                                 </form>
                             </div>
-                        </div>
-                        <div className="col-lg-6 col-12 pt-5">
-                            <div className="register pt-5">
-                                <h1>Register</h1>
-                                <form>
-                                    <div class="mb-3">
-                                        <input type="text" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" placeholder="Name"/>
-                                    </div>
-                                    <div class="mb-3">
-                                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email"/>
-                                    </div>
-                                    <div class="mb-3">
-                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
-                                    </div>
 
-                                    <div className="buttons">
-                                        <button type="submit" class="btn login-btn normal mt-5">Register</button>
-                                        <button type="submit" class="btn login-btn google mt-5">
-                                            <div className="flex wrap">
-                                                <img src={images.Google} alt="img"/> 
-                                                Register with Google
-                                            </div>
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
+
+                        <div>
+                            <h1>Register</h1>
+                            <form onSubmit={(e) => submitSignUpForm(e)}>
+                                <div>
+                                    <input 
+                                    type="email" 
+                                    placeholder="Email"
+                                    ref = {email1}/>
+                                </div>
+                                <div className="password">
+                                        <input 
+                                        type="password"  
+                                        placeholder="Password"
+                                        ref={password1}/>
+                                </div>
+
+                                <div className="buttons">
+                                    <button type="submit">{register ? 'Loading...': 'Register'}</button>
+                                    <button type="button">
+                                        <div className="flex wrap">
+                                            <img src={images.Google} alt="img"/> 
+                                            Register with Google
+                                        </div>
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

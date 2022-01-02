@@ -1,22 +1,60 @@
 import './menu.css'
-import image from "../../assets/images/diamond.png"
+import images from "../../assets/images/images";
+import { Link, NavLink } from "react-router-dom";
 
-function MenuItem({img, text}){
+const menuArr = [
+    {
+        text: "Restaurant",
+        img: images.restaurant
+    },
+    {
+        text: "Cakes",
+        img: images.snacks
+    },
+    {
+        text: "Ice Cream",
+        img:  images.icecream
+    },
+    {
+        text: "Snacks",
+        img: images.snacks
+    },
+    {
+        text: "African Dishes",
+        img: images.dishes
+    },
+    {
+        text: "Local Dishes",
+        img: images.dishes
+    },
+    {
+        text: "Drinks",
+        img: images.drinks
+    },
+    {
+        text: "Intercontinental",
+        img: images.intercontinental
+    }
+]
+
+function MenuItem({img, text, handleClick}){
     return(
-        <div className="menuItem">
-            <div>
-                <img scr={img} alt="soda"/>
-            </div>
-            <p>{text}</p>
-        </div>
+        <li onClick={handleClick}>
+            <img src={img} alt={text} />
+            <NavLink to={`category/${text}`}>{text}</NavLink>
+        </li>
     )
 }
 
-function Menu(){
+function Menu({handleClick}){
     return(
-        <div className="menu">
-            <MenuItem img={image} text="restaurnat"/>
-        </div>
+        <ul className="menu">
+            {
+                menuArr.map(({text, img}) => (
+                    <MenuItem img={img} text={text} key={text} handleClick={handleClick}/>
+                ))
+            }
+        </ul>
     )
 }
 

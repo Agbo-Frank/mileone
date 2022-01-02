@@ -3,6 +3,7 @@ const Vendor = require('../../model/Vendor')
 const Product = require('../../model/Product')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
+const {returnUser} = require('../functions')
 
 function createToken(id){
     return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -10,121 +11,77 @@ function createToken(id){
     });
 }
 
-function returnUser(user){
-    return {
-        ...user,
-        _id: user._id,
-        cart: () => {
-            return user.cart.map(cart => {
-                    return {
-                        ...cart._doc,
-                        product: () => {
-                        return Product.findOne({_id: cart._doc.itemId})
-                                .then(product => {
-                                    return product
-                                })
-                                .catch(err=> {
-                                    throw err
-                                })
-                        } 
-                    }
-                })
-        },
-        wishlists: () => {
-            let ids = user.wishlist
-            return Product.find({_id: ids})
-        },
-        followings: () => {
-        let ids = user.following
-        return Vendor.find({_id: ids})
-        }
-    }
-}
-
 module.exports = {
-    getUser: args => {
-        return User.findById(args.id)
-                .then(user => {
-                    return returnUser(user._doc)
-                })
-                .catch(err => {throw err})
+    getUser: async (args, req) => {
+        try{
+            if(!req.isAuth){
+                throw new Error('Unauthorized')
+            }
+            const userId = req.user
+            let user = await User.findOne({_id: userId})
+            if(!user){
+                throw new Error('User not found')
+            }
+            return returnUser(user._doc)
+        }
+        catch(err){
+            console.log(err)
+            throw err
+        }
     },
     loginUser: async ({email, password}) => {
-        if(!email && !password){
-            throw "Please Enter All fields"
-        }
-        else if(!email){
-            throw "Please Enter your Email"
-        }
-        else if(!password){
-            throw "Please Enter your password"
-        }
-        else {
-            try {
-                let user = await User.findOne({ email })
+        try {
+            let user = await User.findOne({ email })
 
-                if(!user){
-                    let vendor = await Vendor.findOne({ email })
-                    if(!vendor){
-                        return {
-                            token: "",
-                            user: {},
-                            error: "this user does not exist"
-                        }
-                    }
-                    else{
-                        let match = await bcrypt.compare(password, vendor._doc.password)
-                        if(!match){
-                            return {
-                                token: "",
-                                user: {},
-                                error: "incorrect password"
-                            }
-                        }
-                        if(match){
-                            let token = createToken(vendor._id)
-                            return {
-                                token,
-                                user: returnUser(vendor),
-                                error: ""
-                            }
-                        }
-                    }
-    
+            if(!user){
+                let vendor = await Vendor.findOne({ email })
+                if(!vendor){
+                    throw new Error("this user does not exist")
                 }
                 else{
-                    let match = await bcrypt.compare(password, user._doc.password)
+                    let match = await bcrypt.compare(password, vendor._doc.password)
                     if(!match){
-                        return {
-                            token: "",
-                            user: {},
-                            error: "incorrect password"
-                        }
+                        throw new Error("incorrect password")
                     }
-                    if(match){
-                        let token = createToken(user.id)
+                    else{
+                        let token = createToken(vendor._id)
+                        console.log(token)
                         return {
-                            token: token,
-                            user: returnUser(user._doc),
+                            token,
+                            user: null,
+                            vendor: vendor._doc,
                             error: ""
                         }
                     }
                 }
+
+            }
+            else{
+                let match = await bcrypt.compare(password, user._doc.password)
+                if(!match){
+                    throw new Error("incorrect password")
+                }
+                else{
+                    let token = createToken(user.id)
+                    return {
+                        token: token,
+                        user: returnUser(user._doc),
+                        vendor: {},
+                        error: ""
+                    }
+                }
+            }
             } catch (error) {
                 throw error
             }
-            
-        }
     },
     createUser: async ({email, password}) => {
         if(!email && !password){
-            throw "Please Enter All fields"
-        }
-        else if(!email){
-            throw "Please Enter your Email"
-        }
-        else if(!email){
-            throw "Please Enter your password"
+            return {
+                token: "",
+                user: {},
+                error: "Please Enter All fields"
+            }
         }
         else{
             try {
@@ -133,6 +90,7 @@ module.exports = {
                     return {
                         token: "",
                         user: {},
+                        vendor: {},
                         error: "User with the email already exists"
                     }
                 }
@@ -151,6 +109,7 @@ module.exports = {
                     return {
                         token: token,
                         user: returnUser(savedUser._doc),
+                        vendor: {},
                         error: ""
                     }       
                 }

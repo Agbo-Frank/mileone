@@ -1,59 +1,45 @@
-import React, { useState } from "react";
 import images from "../../../assets/images/images";
-import { Header, Hero2, HotDeals, Exclusive } from "../../../components";
+import { useParams } from "react-router-dom"
+import { useQuery, useMutation } from '@apollo/client'
+import { GET_VENDOR } from '../../../Apollo/operations/Queries'
+import {Image} from 'cloudinary-react';
+import { Header, Hero2, Section } from "../../../components";
 import './Brand.css'
 
 const Brand = () => {
+    const { id } = useParams()
+    const {data, loading, error} = useQuery(GET_VENDOR, {
+        variables: {
+            id: id
+        }
+    })
+    console.log(data?.getVendor)
+    const vendor = data?.getVendor
 
+    const [follow] = useMutation()
+    if(loading)return <div>Loading....</div>
     return (
         <>
             <Header />
             <Hero2 />
-            <section className="brand mt-5">
-                <div className="mileone-container">
-                    <div className="brands">
-                        <div className="row">
-                            <div className="col-lg-6 col-md-6 col-8 mt-2">
-                                <div className="flex">
-                                    <div>
-                                        <img src={images.diamond} alt="image" />   
-                                    </div>
-                                    <div className="mt-3">
-                                        <h4>MileOne Organization</h4>
-                                        <p>Mile1, Port Harcourt, Rivers State</p>
-                                        <button className="mile-btn-follow">103 followers</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-6 col-md-6 col-4 mt-3">
-                                <button className="mile-btn-follow1">Follow</button>
-                            </div>
-                            <div className="col-12 mt-5 mb-5">
-                                <div className="row">
-                                        <div className="col-lg-2 col-md-2 col-4 active mb-3">Home</div>
-                                        <div className="col-lg-2 col-md-2 col-4 mb-3">Snacks</div>
-                                        <div className="col-lg-2 col-md-2 col-4 mb-3">African</div>
-                                        <div className="col-lg-2 col-md-2 col-4 mb-3">Ice cream</div>
-                                        <div className="col-lg-2 col-md-2 col-4 mb-3">Drinks</div>
-                                        <div className="col-lg-2 col-md-2 col-4 mb-3">Parfait</div>
-                                </div>
-                                {/* <ul>
-                                    <li className="active">Home</li>
-                                    <li>Snacks</li>
-                                    <li>African</li>
-                                    <li>Intercontinental</li>
-                                    <li>Ice cream</li>
-                                    <li>Drinks</li>
-                                    <li>Parfait</li>
-                                </ul> */}
-                            </div>
+            <section className="section">
+                <div className="brand-info">
+                    <div>
+                        <Image cloudName="agbofrank" publicId={vendor?.logo} secure="true"></Image>
+                        <div>
+                            <h5>{vendor?.name}</h5>
+                            <p>{vendor?.address}</p>
+                            <button className="btn">{vendor?.followers.length} followers</button>
                         </div>
                     </div>
+                    <div>
+                        <button className="btn">Follow</button>
+                    </div>
                 </div>
+                <Section title="Hot Deals" products={vendor?.products}/>
+                {/* <Section title="Exclusively New"/>
+                <Section title="Exclusively New"/> */}
             </section>
-            <HotDeals />
-            <Exclusive />
-            <Exclusive />
         </>
     );
 };

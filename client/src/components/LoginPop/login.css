@@ -1,0 +1,104 @@
+.loginPopUp{
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(4px);
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;right: 0;
+    z-index: 11;
+    overflow: hidden;
+    transform: translateY(-200%);
+    transition: transform .35s ease-in, display .1s linear;
+}
+.loginPopUp.active{
+    display: flex;
+    transform: translateY(0);
+}
+.loginPopUp > div{
+    background-color: #E9F3FD;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    width: 40%;
+    padding: 15px 20px;   
+}
+.loginPopUp > div > div{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.loginPopUp > div > div > i{
+    font-size: 20px;
+    margin: 5px;
+}
+.loginPopUp > div > div > i:hover{
+    color: crimson;
+}
+.loginPopUp .switch{
+    display: flex;
+    border-radius: 20px;
+}
+.loginPopUp .switch > p{
+    padding: 5px 15px;
+    font-size: 13px;
+    transition: all .3s ease-in;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.loginPopUp .switch p.active{
+    background-color: rgba(244, 140, 6, 0.75);
+    color: white;
+}
+.loginPopUp h1{
+    color: #F48C06;
+    text-align: center;
+    font-size: 20px;
+}
+.loginPopUp > div > form {
+    width: 80%;
+    margin: 10px auto;
+}
+.loginPopUp > div > form input{
+    border: none;
+    outline: none;
+    border-bottom: 1px grey solid;
+    padding: 7px 5px;
+    width: 100%;
+    background-color: transparent;
+    margin-top: 1rem;
+}
+.password{
+    display: flex;
+    flex-direction: column;
+}
+.password small{
+    margin-left: auto;
+    color: grey;
+}
+.loginPopUp .buttons{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 2rem auto;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+.loginPopUp button{
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    padding: 5px 15px;
+    background-color: white;
+    color: #6A040F;
+    font-weight: bold;
+    box-shadow: -1px 2px 7px rgba(0, 0, 0, 0.25);
+}
+.loginPopUp button:first-child{
+    color: white;
+    background-color: rgba(244, 140, 6, 0.75);
+}

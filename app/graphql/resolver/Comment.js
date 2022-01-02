@@ -4,8 +4,12 @@ var Comments = require('../../model/Comments')
 
 
 module.exports = {
-    makeComment: async ({message, userId, itemId}) => {
+    makeComment: async ({message, itemId}, req) => {
         try{
+            if(!req.isAuth){
+                throw new Error('Unauthorized')
+            }
+            const userId = req.user
             let user = await User.findOne({ _id: userId })
 
             if(user){
@@ -25,8 +29,12 @@ module.exports = {
             throw err
         }
     },
-    likeComment: async ({commentId, userId}) => {
+    likeComment: async ({commentId}, req) => {
         try{
+            if(!req.isAuth){
+                throw new Error('Unauthorized')
+            }
+            const userId = req.user
             let comment = await Comments.findOne({ _id: commentId })
             if(comment.likes.includes(userId)){
                 let result = await Comments.updateOne({ _id: commentId }, {
@@ -49,8 +57,12 @@ module.exports = {
             throw err
         }
     },
-    delComment: async ({commentId, userId}) => {
+    delComment: async ({commentId}, req) => {
         try{
+            if(!req.isAuth){
+                throw new Error('Unauthorized')
+            }
+            const userId = req.user
             let comment = await Comments.findOne({ _id: commentId })
             if(comment._doc.userId === userId){
                 let result = await Comments.findOneAndRemove({ _id: commentId })

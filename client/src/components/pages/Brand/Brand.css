@@ -1,43 +1,41 @@
-.mileone-container .brands img{
-    width: 122px;
-    height: 124px;
-}
 
-.mileone-container .brands h4{
-    font-style: normal;
-    font-weight: bold;
+.brand-info{
+    display: flex;
+    justify-content: flex-start;
+    gap: 9rem;
+    margin: 3rem 0;
+}
+.brand-info > div{
+    display: flex;
+    justify-content: flex-start;
+    gap: 2rem;
+}
+.brand-info > div img{
+    width: 150px;
+    height: auto;
+    object-fit: cover;
+}
+.brand-info > div > div{
+    align-self: flex-start;
+    margin: 0;padding: 0;
+}
+.brand-info > div > div > h5{
     font-size: 20px;
-    line-height: 24px;
-    text-indent: 1px;
     color: #370617;
+    font-weight: 700;
 }
-
-.mileone-container .brands p{
-    font-style: normal;
-    font-weight: normal;
+.brand-info > div > div > p{
+    line-height: 9px;
+}
+.brand-info > div > .btn{
+    align-self: flex-start;
+}
+.brand-info .btn{
+    background-color: #F48C06;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    color: white;
     font-size: 16px;
-    line-height: 24px;
-    text-indent: 1px;
-    color: #000000;
-}
-
-.mileone-container .brands ul li{
-    display: inline;
-    margin-right: 100px;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 24px;
-    text-align: center;
-    text-indent: 1px;
-    color: #03071E;
-}
-.mileone-container .brands .active{
-    background: #F48C06;
-    box-shadow: -1px 2px 8px rgba(0, 0, 0, 0.3);
-    border-radius: 15px;
-    color: #fff;
     padding: 5px 20px;
-    text-align: center;
-    width: 100px;
 }

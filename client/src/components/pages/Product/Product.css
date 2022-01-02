@@ -1,177 +1,235 @@
-.mileone-container .mile-food-card{
+.product{
+    width: 300px;
+    height: 300px;
+    position: fixed;
+    top: 65px;
+    right: 30px;
+    margin-bottom: 50px;
+    z-index: 10;
+}
+.product > div{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #E8ECFE;
+    position: absolute;
+    padding: 8px 50px;
+    bottom: 0;
+    left: 0;right: 0;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
+}
+.product > div > div{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 100%;
+}
+.product > div > h2{
+    font-weight: bold;
+    font-size: 20px;
+    color: #6A040F;
+    margin-left: 8px;
     text-align: center;
 }
-
-.mileone-container .mile-food-card .star{
-    width: 100px;
+.product > div > .stars{
     margin: 0 auto;
 }
-.mileone-container .mile-food-card p{
-    font-style: normal;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 13px;
-    text-indent: 1px;
-    text-transform: capitalize;
-    padding: 10px 0;
-    padding-bottom: 10px;
-    color: #6A040F;
+.product > div > div > button{
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    background-color: #D00000;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 4px 15px;
 }
-
-.mile-product-section-container{
-    width: 52%;
-    margin: 0 auto;
+.product > div > div > button:last-child{
+    background: #F48C06;
 }
-
-.mile-product-section-container img{
-    width: 122px;
-    height: 124px;
+.product-image{
+    width: 54%;
+    margin: 10px auto;
 }
-
-.mile-product-section-container .text-content h4{
+.product-image img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.brand-info{
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+    width: 100%;
+}
+.brand-info > div:first-child{
+    flex: 70%;
+    display: flex;
+    /* justify-content: flex-start; */
+    gap: 1rem;
+    border: black 1px solid;
+}
+.brand-info > div:first-child img{
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+}
+.brand-info > div:first-child > div{
+    align-self: flex-start;
+    margin: 0;padding: 0;
+    width: 100%;
+}
+.brand-info > div:first-child > div > h5{
+    font-size: 17px;
+    color: #370617;
+    font-weight: 700;
+}
+.brand-info > div:first-child > div > p{
+    line-height: 1;
+    font-size: 14px;
+}
+.brand-info > div:last-child > ._btn{
+    align-self: flex-start;
+}
+.brand-info ._btn{
+    background-color: #F48C06;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    color: white;
+    font-size: 16px;
+    padding: 5px 20px;
+}
+.text-content h4{
     font-family: 'Ubuntu', sans-serif;
-    font-style: normal;
     font-weight: 500;
     font-size: 16px;
-    line-height: 24px;
-    text-indent: 1px;
     color: #D00000;
 }
-
-.mile-product-section-container .text-content p{
+.text-content p{
     font-family: 'Ubuntu', sans-serif;
     text-align: justify;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
-    text-indent: 1px;
     color: #03071E;
 }
-
-.top_companies{
-    border: 1px solid #03071E;
-    box-sizing: border-box;
-}
-
-.top_companies h3{
-    font-family: 'Ubuntu', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
-    text-indent: 1px;
-    color: #D00000;
-    padding-left: 20px;
-    padding-bottom: 20px;
-}
-
-.top_companies .top_companies_slider img{
-    width: 120px;
-    height: 120px;
-}
-
-.top_companies .top_companies_slider .owl-carousel{
-    width: 80%;
-    margin: 0 auto;
-}
-
-.customer_feedback_box{
+.feedback_label{
+    display: flex;
+    justify-content: space-between;
     background: #E9F3FD;
     box-shadow: -1px -1px 4px rgba(0, 0, 0, 0.25);
-    border-bottom: 1px solid #03071E;
     padding: 20px;
+    font-weight: 700;
     font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
-    text-indent: 1px;
     color: #D00000;
+    z-index: 5;
 }
-
+.customer_feedback_content{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+}
+.customer_feedback_content > div:first-child{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.rate{
+    width: 100%;
+    margin: 0;padding: 0;
+    padding: 4px 6px;
+}
+.rate li{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+.rate > li i{
+    color: #F48C06;
+    font-size: 12px;
+}
+.rate > li > .progress{
+    height: 5px;
+    width: 35%;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.rate > li > .progress > .progress-bar{
+    background-color: #E85D04;
+}
 .customer_feedback_content{
     background: #ffffff;
     padding: 20px;
 }
-
+.customer_feedback_content > div:first-child{
+    padding: 0;
+    margin: 0;
+    align-self: flex-start;
+    align-content: flex-start;
+}
 .customer_feedback_content .rating-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     background: #FFFFFF;
     box-shadow: -1px 1px 8px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-    text-align: center;
-    padding: 30px;
+    padding: 25px;
 }
 
 .customer_feedback_content .rating-box h1{
     font-family: 'Ubuntu', sans-serif;
-    font-style: normal;
     font-weight: bold;
     font-size: 48px;
-    padding-bottom: 20px;
-    line-height: 24px;
-    text-indent: 1px;
     color: #E85D04;
     text-shadow: -1px 2px 5px rgba(0, 0, 0, 0.25);
 }
-
-.customer_feedback_content .rating-box img{
-    width: 111px;
-    height: 19px;
+.comments{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
 }
-
-.customer_feedback_content .rating ul{
-    padding: 0 10px;
-}
-
-.customer_feedback_content .rating{
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
-    text-indent: 1px;
-    color: #000000;
-}
-
-.customer_feedback_content .rating img{
-    width: 23px;
-    height: 23px;
-}
-
-.customer_feedback_content .rating .progress-bar{
-    background-color: #E85D04;
-}
-
-.reviews{
+.comments h4,
+.customer_feedback_content > div:first-child > p{
     font-family: 'Ubuntu', sans-serif;
-    font-style: normal;
-    font-weight: 500;
+    font-weight: 700;
     font-size: 16px;
-    line-height: 24px;
-    text-indent: 1px;
+    color: #D00000;
+}
+.comments .comment{
+    border-bottom: 1px solid grey;
+    padding: 15px 0;
+}
+
+.comment p{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+    color: #03071E;
+}
+.comment div {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    font-size: 14px;
     color: #D00000;
 }
 
-.reviews .review-box{
-    border-bottom: 1px solid #03071E;
-    padding-bottom: 15px;
-}
 
-.reviews img{
-    width: 76px;
-    height: 13px;
-}
 
-.reviews p{
-    font-family: 'Ubuntu', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
-    text-indent: 1px;
-    color: #03071E;
-}
+
+
+
+
+
+
+
+
 
 @media screen and (max-width: 768px){
     .mile-product{
