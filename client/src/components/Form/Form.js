@@ -8,7 +8,7 @@ import { SIGNUPUSER, GOOGLELOGIN, FORGETPASSWORD }from '../../Apollo/operations/
 import {Auth, AuthVar} from '../../Apollo/reactiveVar/Auth'
 import GoogleLogin from 'react-google-login';
 import '../LoginPop/login.css'
-require("dotenv").config()
+// require("dotenv").config()
 
 function Form({ active, setActive }){
     const location = useLocation()
@@ -148,12 +148,20 @@ function Form({ active, setActive }){
                     placeholder="Password"
                     ref={password}/>
                     { 
-                        active === 'login' && <small 
+                        active === 'login' ?
+                        <small 
                         onClick={async () => {
                             await setTimeout(() => AlertFunc({type: 'CLOSE_AUTH_ALERT'}), 5000)
                             AlertFunc({type: 'ERROR_AUTH_ALERT', data: "please Provide your email and click on the send new password"})
                             setActive('forgetPassWord')
-                        }}>Forgot Password</small> 
+                        }}>Forgot Password</small> :
+                        active === 'forgetPassWord' &&
+                        <small 
+                        onClick={async () => {
+                            await setTimeout(() => AlertFunc({type: 'CLOSE_AUTH_ALERT'}), 5000)
+                            AlertFunc({type: 'SUCCESS_AUTH_ALERT', data: "please Login with the new password"})
+                            setActive('login')
+                        }}>Login</small> 
                     }
                 </div>
                 
@@ -168,7 +176,7 @@ function Form({ active, setActive }){
                         }
                     </button>
                     <GoogleLogin
-                        clientId = {process.env.CLIENT_ID}
+                        clientId = "380010552226-lalq9oc9o5nngohmfm6c85j4n9jkvqtj.apps.googleusercontent.com"
                         render={renderProps => (
                             <button 
                             type="button"

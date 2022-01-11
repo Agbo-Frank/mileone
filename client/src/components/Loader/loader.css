@@ -62,4 +62,11 @@
     gap: 4px;
     width: 25%;
   }
-}  
+} 
+
+@media screen and (max-width: 560px) {
+  .loader > div{
+    gap: 4px;
+    width: 30%;
+  }
+} 
