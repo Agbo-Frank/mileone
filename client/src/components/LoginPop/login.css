@@ -48,6 +48,23 @@
     border-radius: 20px;
     cursor: pointer;
 }
+.loginPopUp .auth1{
+    display: none;
+    position: relative;
+    width: 50% !important;
+    padding: 5px 7px;
+    top: 10px;
+    font-size: 13px;
+    left: 50%;
+    visibility: hidden;
+    overflow-wrap: break-word;
+    transform: translateX(-50%);
+    transition: all .2s linear;
+}
+.loginPopUp .auth1.active{
+    visibility: visible;
+    display: block;
+}
 .loginPopUp .switch p.active{
     background-color: rgba(244, 140, 6, 0.75);
     color: white;
@@ -101,4 +118,15 @@
 .loginPopUp button:first-child{
     color: white;
     background-color: rgba(244, 140, 6, 0.75);
+}
+
+@media screen and (max-width: 760px){
+    .loginPopUp > div{
+        width: 80%;
+    }
+    .loginPopUp .auth1{
+        width: 40%;
+        padding: 5px 8px;
+        font-size: 11px;
+    }
 }

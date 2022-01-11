@@ -1,12 +1,25 @@
-
-.alert{
+/* .alert{
+    height: 30px;
+    padding: 0;
+} */
+.normal{
     position: fixed;
     bottom: -100%;
     left: 50%;
     transform: translateX(-50%);
     width: 30%;
+    padding: 5px 8px;
+    font-size: 13px;
     transition: all 0.3s ease-in-out;
+    overflow-wrap: break-word;
 }
-.alert.active{
+.normal.active{
     bottom: 50px;
+}
+@media screen and (max-width: 760px){
+    .normal{
+        width: 60%;
+        padding: 5px 8px;
+        font-size: 11px;
+    }
 }

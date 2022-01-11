@@ -15,6 +15,7 @@
     "graphql-tag": "^2.12.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-google-login": "^5.2.2",
     "react-icon": "^1.0.0",
     "react-icons": "^4.3.1",
     "react-router-dom": "^6.0.2",
@@ -52,5 +53,6 @@
     "autoprefixer": "^10.4.0",
     "postcss": "^8.3.11",
     "tailwindcss": "^2.2.19"
-  }
+  },
+  "proxy": "http://localhost:5500"
 }

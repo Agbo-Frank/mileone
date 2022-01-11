@@ -6,6 +6,8 @@ const LOGINUSER = gql`
             token
             user{
                 email
+                name
+                image
             }
             vendor{
                 email
@@ -14,7 +16,6 @@ const LOGINUSER = gql`
                     coordinates
                 }
             }
-            error
         }
     }
 `
@@ -39,6 +40,25 @@ const GET_PRODUCTS = gql`
         }
     }
 `
+const GET_PRODUCTS_CATEGORY = gql`
+    query GetProductsCategory($category: String!){
+        getProductsCategory(category: $category){
+            name
+            _id
+            vendor{
+                name
+                logo
+            }
+            category
+            price
+            image
+            rating{
+                rate
+            }
+        }
+    }
+`
+
 const GET_PRODUCT = gql`
     query GetProduct($itemId: String!){
         getProduct(id: $itemId){
@@ -69,6 +89,26 @@ const GET_PRODUCT = gql`
         }
     }
 `
+const SEARCH = gql`
+    query Search($word: String!){
+        search(word: $word){
+            name
+            _id
+            vendor{
+                name
+                logo
+            }
+            category
+            price
+            availability
+            image
+            rating{
+                rate
+            }
+        }
+    }
+`
+
 const GET_VENDORS = gql`
     query GetVendors{
          getVendors{
@@ -84,8 +124,8 @@ const GET_VENDORS = gql`
     }
 `
 const GET_VENDOR = gql`
-    query GetVendor($id: String!){
-         getVendor(id: $id){
+    query GetVendor($vendorId: String!){
+         getVendor(vendorId: $vendorId){
             _id
             name
             image
@@ -96,11 +136,9 @@ const GET_VENDOR = gql`
                 _id
                 name
                 image
-                vendor{
-                    logo
-                    name
+                rating{
+                    rate
                 }
-                rate
                 price
             }
         }
@@ -109,6 +147,10 @@ const GET_VENDOR = gql`
 const GET_USER = gql`
     query GetUser{
         getUser{
+            name
+            image
+            email
+            logout @client
             cart{
                 itemId
                 quantity
@@ -116,6 +158,7 @@ const GET_USER = gql`
                     name
                     _id
                     price
+                    image
                 }
             }
             wishlists{
@@ -135,12 +178,13 @@ const GET_USER = gql`
     }
 `
 
-
 export  { 
     LOGINUSER,
     GET_PRODUCTS,
     GET_PRODUCT,
+    GET_PRODUCTS_CATEGORY,
+    SEARCH,
     GET_VENDORS,
     GET_VENDOR,
-    GET_USER 
+    GET_USER
  }

@@ -1,10 +1,11 @@
-import images from "../../../assets/images/images";
 import { useParams } from "react-router-dom"
-import { useState }from 'react'
 import { useQuery } from "@apollo/client";
 import LoginPop from '../../LoginPop/LoginPop'
+import Loader from '../../Loader/Loader'
+import { ToggleFunc } from '../../../Apollo/reactiveVar/Toggle';
+import { AlertFunc } from '../../../Apollo/reactiveVar/AuthAlertVar'
 import { GET_PRODUCT } from "../../../Apollo/operations/Queries";
-import { Header, Section, Stars } from "../../../components";
+import { Stars } from "../../../components";
 import {Image, Transformation} from 'cloudinary-react';
 import { useMutation } from '@apollo/client'
 import { ADD_TO_CART, WISHLIST, FOLLOW } from "../../../Apollo/operations/Mutations";
@@ -14,7 +15,6 @@ import './Product.css'
 
 const Product = () => {
     const { id } = useParams()
-    const [toggled, setToggled] = useState(false)
     const {data, loading, error} = useQuery(GET_PRODUCT,{
         variables: {
             itemId: String(id)
@@ -25,32 +25,9 @@ const Product = () => {
     
     const token = localStorage.getItem('Token')
 
-    const configuration = {
-        context:{
-            headers:{
-                authToken: token 
-            }
-        },
-        onCompleted: (data) => {
-            console.log(data)
-        },
-        onError: (err) => {
-            if(err){
-                console.log(err)
-                setToggled(true)
-            }
-        }
-    }
-    
-
-    const [addToCart] = useMutation(ADD_TO_CART, { ...configuration })
-    const [wishlist] = useMutation(WISHLIST, { ...configuration })
-    const [follow, {loading: following}] = useMutation(FOLLOW, { ...configuration })
-
-
     function add(id, type){
         if(!token){
-            setToggled(true)
+            ToggleFunc({type: 'OPEN_LOGIN_MODEL'})//login pop
             return false
         }
         else{
@@ -70,17 +47,43 @@ const Product = () => {
             }
         }
     }
-    if(loading)return(
-        <div>Loading....</div>
-    )
-    console.log(data)
+
+    const configuration = {
+        context:{
+            headers:{
+                authToken: token 
+            }
+        },
+        onCompleted: async (data) => {
+            console.log(data)
+            await setTimeout(() => AlertFunc({type: 'CLOSE_ALERT'}), 3000)
+            return AlertFunc({type: 'SUCCESS_ALERT', data: 'Product Successfully Added'})
+        },
+        onError:async  (err) => {
+            if(err){
+                ToggleFunc({type: 'OPEN_LOGIN_MODEL'})//login model
+                await setTimeout(() => AlertFunc({type: 'CLOSE_AUTH_ALERT'}), 5000)
+                return AlertFunc({type: 'ERROR_AUTH_ALERT', data: 'Please Login!'})
+            }
+        }
+    }
+    
+
+    const [addToCart] = useMutation(ADD_TO_CART, { ...configuration })
+    const [wishlist] = useMutation(WISHLIST, { ...configuration })
+    const [follow, {loading: following}] = useMutation(FOLLOW, { ...configuration,
+        onCompleted: async (data) => {
+            await setTimeout(() => AlertFunc({type: 'CLOSE_ALERT'}), 3000)
+            return AlertFunc({type: 'SUCCESS_ALERT', data: 'Followed'})
+        },
+    })
+
+    if(loading) return <Loader />
     return (
         <>  
-            <Header />
-            <LoginPop toggle={[toggled, setToggled]}/>
-            <section className="section">
+            <section>
                 <div className="product-image">
-                    <img src={images.photo} />
+                    <Image cloudName="agbofrank" publicId={product?.image} secure="true"></Image>
                     <div className="brand-info">
                         <div>
                             <Image cloudName="agbofrank" publicId={product?.vendor?.logo} secure="true"></Image>
@@ -91,7 +94,7 @@ const Product = () => {
                             </div>
                         </div>
                         <div>
-                            <button className="btn" onClick={() => follow({
+                            <button className="_btn" onClick={() => follow({
                                 variables:{
                                     id: product?.vendor?._id
                                 }
@@ -106,6 +109,10 @@ const Product = () => {
                             Maple Leaf Cake is a mixture of Lor em lorem ispum lotat lorem lorem Leaf Cake is a mixture of Lor em
                             lorem ispum lotat lorem lorem 
                         </p>
+                    </div>
+                    <div className="addbuttons">
+                            <button onClick={() => add(product?._id, "addToCart")}>Add To cart</button>
+                            <button onClick={() => add(product?._id, "wishlist")}>Wishlist</button>
                     </div>
                     <div>
                         <div className="feedback_label">

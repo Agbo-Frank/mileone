@@ -15,19 +15,23 @@ function auth (req, res, next){
 }
 
 async function authenticate (req, res, next){
+    
+    const token = req.headers.authtoken
+    if(!token){
+        req.isAuth = false
+        return next()
+    }
+    if(token === '' || token === null){
+        req.isAuth = false
+        return next()
+    }
     try{
-        const token = req.headers.authtoken
-        console.log(token)
-        if(!token){
-            req.isAuth = false
-            return next()
-        }
         const decodedToken = await jwt.verify(token, process.env.JWT_SECRET)
         if(!decodedToken){
             req.isAuth = false
             return next()
         }
-        else{
+        if(decodedToken){
             req.isAuth = true
             req.user = decodedToken.id
             return next()
@@ -36,7 +40,6 @@ async function authenticate (req, res, next){
     catch(err){
         res.status(400).json({err})
     }
-        
 }
 
 module.exports = {authenticate, auth}

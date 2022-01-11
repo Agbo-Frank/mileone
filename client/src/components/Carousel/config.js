@@ -26,15 +26,25 @@ const settings = {
     slidesToShow: 5,
     swipeToSlide: true,
     rows: 2,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    // nextArrow: <SampleNextArrow />,
+    // prevArrow: <SamplePrevArrow />,
     responsive: [
-        {
-            breakpoint: 584,
+          {
+            breakpoint: 494,
             settings: {
               slidesToShow: 1,
               rows: 1,
-              centerPadding: "50px",
+              centerPadding: "80px",
+              centerMode: true,
+              infinite: true,
+            }
+        },
+        {
+            breakpoint: 584,
+            settings: {
+              slidesToShow: 2,
+              rows: 1,
+              centerPadding: "10px",
               centerMode: true,
               infinite: true,
             }
@@ -42,9 +52,9 @@ const settings = {
         {
             breakpoint: 654,
             settings: {
-              slidesToShow: 1,
+              slidesToShow: 2,
               rows: 1,
-              centerPadding: "75px",
+              centerPadding: "40px",
               centerMode: true,
               infinite: true,
             }
@@ -52,9 +62,9 @@ const settings = {
         {
             breakpoint: 684,
             settings: {
-              slidesToShow: 1,
+              slidesToShow: 2,
               rows: 1,
-              centerPadding: "155px",
+              centerPadding: "35px",
               centerMode: true,
               infinite: true,
             }

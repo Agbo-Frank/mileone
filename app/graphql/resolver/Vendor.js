@@ -12,25 +12,18 @@ function createToken(id){
 }
 
 module.exports = {
-    getVendor: ({id}) => {
-        return Vendor.findOne(id)
+    getVendor: ({vendorId}) => {
+        return Vendor.findOne({_id: vendorId})
                 .then(user => {
-                    return {
-                        ...user._doc,
-                        _id: user._doc._id,
-                        follower: () => {
-                            let ids = user._doc.followers
-                            return User.find({_id: ids})
-                        }
-                    }
+                    return returnVendor(user._doc)
                 })
                 .catch(err => {throw err})
     },
     getVendors: () => {
         return Vendor.find({ })
-                    .then(users => {
-                        return users.map(user => returnVendor(user._doc))
-                    })
+            .then(users => {
+                return users.map(user => returnVendor(user._doc))
+            })
     },
     getVendorsLoc: ({lat, lon}) => {
         return Vendor.aggregate([
@@ -184,16 +177,11 @@ module.exports = {
                 token,
                 user: {
                     ...savedUser._doc
-                },
-                error: ""
+                }
             }
         }
         catch(err){
-            return {
-                token: "",
-                user: {},
-                error: err
-            }
+            throw err
         }
     }         
 }

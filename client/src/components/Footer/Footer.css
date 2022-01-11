@@ -81,3 +81,8 @@
 .footer .social ul{
     display: flex;
 }
+@media screen and (max-width: 650px) {
+    .footer{
+        display: none;
+    }
+}

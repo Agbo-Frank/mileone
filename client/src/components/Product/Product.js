@@ -1,21 +1,21 @@
-import React, { useState, useRef, } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { useMutation, useReactiveVar } from '@apollo/client'
+import { useMutation } from '@apollo/client'
 import { Stars } from '../../components'
-import {AuthVar} from '../../Apollo/reactiveVar/Auth'
-import { init, reducer } from '../../Reducer/reducer';
+import { ToggleFunc } from '../../Apollo/reactiveVar/Toggle';
+import { AlertFunc } from '../../Apollo/reactiveVar/AuthAlertVar'
 import {Image, Transformation} from 'cloudinary-react';
 import { ADD_TO_CART, WISHLIST } from "../../Apollo/operations/Mutations";
 import { setRating } from '../../helpFunctions/functions'
 import './product.css'
 
 
-function Product({product, toggle }){
+function Product({ product }){
     const token = localStorage.getItem('Token')
     const aveRate = setRating(product?.rating)
     function add(id, type){
         if(!token){
-            toggle[0](true)//login pop
+            ToggleFunc({type: 'OPEN_LOGIN_MODEL'})//login pop
             return false
         }
         else{
@@ -35,69 +35,44 @@ function Product({product, toggle }){
             }
         }
     }
-    const [addToCart] = useMutation(ADD_TO_CART, {
-        context:{
-            headers:{
-                authToken:  token
-            }
-        },
-        onCompleted: (data) => {
-            console.log(data)
-            // setTimeout(toggle[1]({
-            //     message: '',
-            //     type: false,
-            //     show: false
-            // }), 5000)
-
-            toggle[1]({
-                message: "Product Successfully Added",
-                type: true,
-                show: true
-            })
-        },
-        onError: (err) => {
-            if(err){
-                console.log(err)
-                toggle[0](true)
-            }
-        }
-    })
-    const [wishlist] = useMutation(WISHLIST, {
+    const configuration = {
         context:{
             headers:{
                 authToken: token 
             }
         },
-        onCompleted: (data) => {
+        onCompleted: async (data) => {
             console.log(data)
-            toggle[1]({
-                message: "Product Successfully Added",
-                type: true,
-                show: true
-            })
+            await setTimeout(() => AlertFunc({type: 'CLOSE_ALERT'}), 3000)
+            return AlertFunc({type: 'SUCCESS_ALERT', data: 'Product Successfully Added'})
         },
-        onError: (err) => {
+        onError: async (err) => {
             if(err){
-                console.log(err)
-                toggle[0](true)
+                ToggleFunc({type: 'OPEN_LOGIN_MODEL'})//login model
+                const message1 = err.networkError
+                console.log(message1, err.graphQLErrors)
+                await setTimeout(() => AlertFunc({type: 'CLOSE_AUTH_ALERT'}), 5000)
+                return AlertFunc({type: 'ERROR_AUTH_ALERT', data: 'Please Login!'})
             }
         }
-    })
+    }
+    const [addToCart] = useMutation(ADD_TO_CART, { ...configuration })
+    const [wishlist] = useMutation(WISHLIST, { ...configuration })
     
     return(
         <div className="productCard">
             <Link to={`/product/${product._id}`}>
-            <Image cloudName="agbofrank" publicId={product.image} secure="true">
-                <Transformation background="#E9F3FD" />
-                <Transformation width="270" height="240" crop="fill" gravity="center" />
-                <Transformation radius="80" />
-            </Image>
+                <Image cloudName="agbofrank" publicId={product.image} secure="true">
+                    <Transformation background="#E9F3FD" />
+                    <Transformation width="270" height="240" crop="fill" gravity="center" />
+                    <Transformation radius="80" />
+                </Image>
             </Link>
             <div>
             <Image cloudName="agbofrank" publicId={product?.vendor?.logo} secure="true"></Image>
                 <div>
                     <p>{product?.name}</p>
-                    <p><i class="fas fa-map-marker-alt"></i>{product?.vendor?.name}</p>
+                    <p><i class="fas fa-store"></i> {product?.vendor?.name}</p>
                     <Stars rate={aveRate}/>
                     <h2>${product.price}</h2>
                     <div>

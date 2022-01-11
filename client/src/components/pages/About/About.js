@@ -8,7 +8,6 @@ const About = () => {
 
     return (
         <>
-            <Header />
             <Hero2 />
 
             <section className="about">

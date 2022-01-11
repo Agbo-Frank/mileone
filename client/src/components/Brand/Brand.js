@@ -7,7 +7,7 @@ import settings from '../Carousel/config'
 function BrandComponent({vendor}){
     return(
         <div className="brand-card">
-            <Image cloudName="agbofrank" publicId={vendor.logo} secure="true">
+            <Image cloudName="agbofrank" publicId={vendor?.products[0].image} secure="true">
                 <Transformation width="270" height="240" crop="fill" gravity="center" />
             </Image>
             <Link to={`/brand/${vendor._id}`} className="brand-card-info">

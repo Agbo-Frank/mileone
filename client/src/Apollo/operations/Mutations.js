@@ -11,8 +11,7 @@ mutation CreateUser($email: String!, $password: String!){
             cart{
                 itemId
             }
-        },
-        error
+        }
     }
 }
 `
@@ -57,10 +56,17 @@ mutation CreateVendor(
             location{
                 coordinates
             }
-        },
-        error
+        }
     }
 }
+`
+
+const FORGETPASSWORD = gql`
+    mutation ForgetPassword($email: String!){
+        forgetPassword(email: $email){
+            message
+        }
+    }
 `
 
 const ADD_TO_CART = gql`
@@ -91,6 +97,17 @@ const FOLLOW = gql`
         }
     }
 `
+const GOOGLELOGIN = gql`
+    mutation GoogleLogin($tokenId: String!, $actionType: String!){
+        googleLogin(tokenId: $tokenId, actionType: $actionType){
+            token,
+            user{
+                email
+                name
+            }
+        }
+    }
+`
 
 export  { 
     SIGNUPUSER, 
@@ -98,5 +115,7 @@ export  {
     ADD_TO_CART,
     WISHLIST,
     REMOVE_CART_ITEM,
-    FOLLOW
-    }
+    FOLLOW,
+    GOOGLELOGIN,
+    FORGETPASSWORD
+}

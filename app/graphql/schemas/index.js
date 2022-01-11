@@ -41,12 +41,12 @@ module.exports = buildSchema(`
         vendor: Vendor
         category: String
         image: String
-        price: Float!
+        price: Float
         discountedPrice: Float
         description: String!
         availability: Boolean
         comments: [Comment!]!
-        rating: [Rate!]
+        rating: [Rate]
         date: String!
     }
 
@@ -86,7 +86,6 @@ module.exports = buildSchema(`
         token: String
         user: User
         vendor: Vendor
-        error: String
     }
 
     type Message {
@@ -121,12 +120,14 @@ module.exports = buildSchema(`
 
     type rootQuery {
         getProducts: [Product!]!
+        getProductsCategory(category: String!): [Product!]!
         getProduct(id: String!): Product!
         getUser: User!
-        getVendor(id: String!): Vendor!
+        getVendor(vendorId: String!): Vendor!
         getVendorsLoc(lat: Float!, lon: Float!): [Vendor!]!
         getVendors: [Vendor!]!
         loginUser(email: String!, password: String!): Auth
+        search(word: String!): [Product]
     }
 
     type rootMutation {
@@ -137,6 +138,8 @@ module.exports = buildSchema(`
         addToWishlist(itemId: String!): Message
         removeFromWishlist(itemId: String!): Message
         createUser(email: String!, password: String!): Auth
+        forgetPassword(email: String!): Message
+        googleLogin(tokenId: String!, actionType: String!): Auth
         createVendor(input: vendorInput): Auth
         makeComment(message: String!, itemId: String!): Comment!
         likeComment(commentId: String!): Message

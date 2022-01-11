@@ -27,7 +27,7 @@ const Photo = ({click, Doc}) => {
             image: file,
             logo
         }
-        let res = await fetch("http://localhost:5500/upload/vendor", {
+        let res = await fetch("/upload/vendor", {
             method: "POST",
             body: JSON.stringify(docs),
             headers: {

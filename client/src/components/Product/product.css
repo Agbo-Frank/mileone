@@ -42,11 +42,12 @@
 .productCard > div > div p:nth-child(2){
     padding: 0;margin: 0;
     font-weight: bold;
-    font-size: 13px;
+    font-size: 15px;
     color: #000000;
     margin-left: 8px;
 }
 .productCard > div > div p:nth-child(2){
+    font-size: 12px;
     font-weight: normal;
     font-family: 'Roboto', sans-serif;
 }

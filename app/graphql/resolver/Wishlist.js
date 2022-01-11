@@ -8,10 +8,10 @@ module.exports = {
             }
             const userId = req.user
            let result = await User.updateOne({ _id: userId}, {
-                                $pull: {
-                                    wishlist: itemId
-                                }
-                            })
+                $pull: {
+                    wishlist: itemId
+                }
+            })
             return result.acknowledged && {message: "removed successfully"}                
         }
         catch(err){

@@ -3,9 +3,18 @@
     display: grid;
     grid-template-columns:  repeat(auto-fit, minmax(15rem, 1fr));
 }
-@media screen and (max-width: 580px){
+.home-search{
+    display: none;
+}
+@media screen and (max-width: 650px){
     .section{
         display: none;
+    }
+    .home-search{
+        display: block;
+        margin: 1.7rem auto;
+        width: 80%;
+        padding: 3px 10px;
     }
 }
 

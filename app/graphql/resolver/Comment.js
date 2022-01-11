@@ -38,11 +38,11 @@ module.exports = {
             let comment = await Comments.findOne({ _id: commentId })
             if(comment.likes.includes(userId)){
                 let result = await Comments.updateOne({ _id: commentId }, {
-                                        $pull: {
-                                            likes:  userId
-                                        }
-                                    })
-                                    return result.acknowledged && {message: "successfully unliked this comment"}                  
+                    $pull: {
+                        likes:  userId
+                    }
+                })
+                return result.acknowledged && {message: "successfully unliked this comment"}                  
             }
             else{
                 let result = await Comments.updateOne({ _id: commentId }, {

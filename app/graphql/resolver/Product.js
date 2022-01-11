@@ -18,6 +18,26 @@ module.exports = {
             throw err
         }
     },
+    getProductsCategory: ({category}) => {
+        if(category === 'all'){
+            return Product.find({ })
+                .then(product => {
+                    return product.map(item => {
+                        return returnProduct(item)
+                    })
+                })
+                .catch(err => {throw err})
+        }
+        else{
+            return Product.find({category})
+                .then(product => {
+                    return product.map(item => {
+                        return returnProduct(item)
+                    })
+                })
+                .catch(err => {throw err})
+        }
+    },
     getProduct: args => {
         return Product.findById(args.id)
                 .then(product => {
@@ -100,17 +120,17 @@ module.exports = {
                 }
                 
                let result = await Product.updateOne({
-                                name: name || product._doc.name,
-                                category: category || product._doc.category, 
-                                image: image,
-                                price: price || product._doc.price,
-                                discountedPrice: dp || product._doc.discountedPrice,
-                                description: description || product._doc.description,
-                                availability: availability ||product._doc.availability
-                            })
-                    return result.acknowledged && {
-                        message: 'updated successfully'
-                    }
+                    name: name || product._doc.name,
+                    category: category || product._doc.category, 
+                    image: image,
+                    price: price || product._doc.price,
+                    discountedPrice: dp || product._doc.discountedPrice,
+                    description: description || product._doc.description,
+                    availability: availability ||product._doc.availability
+                })
+                return result.acknowledged && {
+                    message: 'updated successfully'
+                }
             }
         }
         catch(err){
@@ -137,5 +157,19 @@ module.exports = {
         catch (err){
             throw err
         }
+    },
+    search: ({ word }) => {
+        return Product.find(
+            { "name": { $regex: word, $options: 'i'  } }
+        )
+        .then(products => {
+            return products.map(product => {
+                return returnProduct(product)
+            })
+            
+        })
+        .catch(err => {
+            throw err
+        })
     }
 }    

@@ -1,29 +1,27 @@
-import { useEffect, useReducer } from 'react'
+import { useReactiveVar } from '@apollo/client'
+import { AuthAlertVar, AlertVar } from '../../Apollo/reactiveVar/AuthAlertVar'
 import './alert.css'
-import { init, reducer } from '../../Reducer/reducer';
 
 function Alert(){
-    const [state, dispatch] = useReducer(reducer, init)
-    // function set(){
-    //     if(alert.show){
-    //         setTimeout(setAlert({
-    //             message: '',
-    //             type: false,
-    //             show: false
-    //         }), 5000)
-    //     }
-    // }
-    
-    // useEffect(() => {
-    //     set()
-    // }, [alert])
+    const alert = useReactiveVar(AlertVar)
     return(
-        <div className={ state.alert.type ? `alert ${state.alert.show && `active`} alert-success` : `alert ${state.alert.show && `active`} alert-danger`} role="alert">
-            {state.alert.message}
+        <div className={ alert[0]?.type ? `alert normal ${alert[0]?.show && `active`} alert-success` : `alert normal ${alert[0]?.show && `active`} alert-danger`} role="alert">
+            {alert[0]?.message}
         </div>
     )
 }
+function AuthAlert(){
+    const alert = useReactiveVar(AuthAlertVar)
+    return(
+        <>
+            <div className={ alert[0]?.type ? `alert auth1 ${alert[0]?.show && `active`} alert-success` : `alert auth1 ${alert[0]?.show && `active`} alert-danger`} role="alert">
+                <div>{alert[0]?.message}</div>
+            </div>
+        </>
+    )
+}
 
-export default Alert
-
-// {alert, setAlert}
+export {
+    Alert,
+    AuthAlert
+}

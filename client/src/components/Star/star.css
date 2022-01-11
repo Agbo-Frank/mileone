@@ -8,7 +8,7 @@
     color: #F48C06;
     font-size: 14px;
 }
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 760px) {
     .stars li i {
         color: #F48C06;
         font-size: 11px;

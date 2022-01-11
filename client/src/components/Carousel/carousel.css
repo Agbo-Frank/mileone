@@ -4,3 +4,23 @@
     margin: 20px auto;
     padding-top: 0.3rem;
 }
+.slide1{
+    width: 95%;
+    margin: 20px auto;
+    display: none;
+}
+.barges{
+    background-color: rgba(244, 140, 6, 0.37);
+    border-radius: 15px;
+    width: fit-content;
+    font-size: 13px;
+    margin: 0.5rem;
+    padding: 3px 15px;
+    color: rgba(106, 4, 15, 1);
+    display: none;
+}
+@media screen and (max-width: 650px) {
+    .barges{
+        display: block;
+    }
+}

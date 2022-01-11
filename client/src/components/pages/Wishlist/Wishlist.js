@@ -1,14 +1,13 @@
-import React, { useState } from "react";
-import images from "../../../assets/images/images";
+import React from "react";
 import { useQuery, useReactiveVar, useMutation } from '@apollo/client'
 import { Link } from "react-router-dom";
 import { Stars } from '../../../components'
-import { Header, Hero1 } from "../../index";
+import { Hero1 } from "../../index";
 import {Image, Transformation} from 'cloudinary-react';
-import {AuthVar} from '../../../Apollo/reactiveVar/Auth'
+import Loader from '../../Loader/Loader'
 import { ADD_TO_CART } from '../../../Apollo/operations/Mutations'
 import {GET_USER} from '../../../Apollo/operations/Queries'
-import { WishlistVar} from '../../../Apollo/reactiveVar/Cart'
+import { WishlistVar} from '../../../Apollo/reactiveVar/Variables'
 import { setRating } from '../../../helpFunctions/functions'
 import '../../Product/product.css'
 import './Wishlist.css'
@@ -37,7 +36,7 @@ function Product({ product }){
                 <Image cloudName="agbofrank" publicId={product?.vendor?.logo} secure="true"></Image>
                 <div>
                     <p>{product?.name}</p>
-                    <p><i class="fas fa-map-marker-alt"></i> {product?.vendor?.name}</p>
+                    <p><i class="fas fa-store"></i> {product?.vendor?.name}</p>
                     <Stars rate={aveRate}/>
                     <h2>${product.price}</h2>
                     <div>
@@ -60,7 +59,6 @@ function Product({ product }){
 }
 
 const Wishlist = () => {
-    const user = useReactiveVar(AuthVar)
     const wishlists = useReactiveVar(WishlistVar)
     
     const {loading, error } = useQuery(GET_USER,{
@@ -74,10 +72,9 @@ const Wishlist = () => {
         }
     })
     console.log(wishlists)
-    if(loading) return <div>loading</div>
+    if(loading) return <Loader />
     return (
         <>  
-            <Header />
             <Hero1/>
             <section className="wishlist">
                 <div className="mile-label">
@@ -89,9 +86,6 @@ const Wishlist = () => {
                             <Product product={item} key={item._id}/>
                         ))
                     }
-                    
-                    {/* <Product img={images.food2} logo={images.diamond} name='Kilimagaro' rate={5} price={400}/>
-                    <Product img={images.food1} logo={images.diamond} name='Kilimagaro' rate={5} price={400}/> */}
                 </div>
             </section>
         </>
