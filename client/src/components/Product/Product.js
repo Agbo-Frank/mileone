@@ -13,10 +13,11 @@ import './product.css'
 function Product({ product }){
     const token = localStorage.getItem('Token')
     const aveRate = setRating(product?.rating)
-    function add(id, type){
+    async function add(id, type){
         if(!token){
             ToggleFunc({type: 'OPEN_LOGIN_MODEL'})//login pop
-            return false
+            await setTimeout(() => AlertFunc({type: 'CLOSE_AUTH_ALERT'}), 5000)
+            return AlertFunc({type: 'ERROR_AUTH_ALERT', data: 'Please Login!'})
         }
         else{
             if(type === "addToCart"){
@@ -42,15 +43,14 @@ function Product({ product }){
             }
         },
         onCompleted: async (data) => {
-            console.log(data)
             await setTimeout(() => AlertFunc({type: 'CLOSE_ALERT'}), 3000)
             return AlertFunc({type: 'SUCCESS_ALERT', data: 'Product Successfully Added'})
         },
         onError: async (err) => {
             if(err){
                 ToggleFunc({type: 'OPEN_LOGIN_MODEL'})//login model
-                const message1 = err.networkError
-                console.log(message1, err.graphQLErrors)
+                // const message1 = err.networkError
+                // console.log(message1, err.graphQLErrors)
                 await setTimeout(() => AlertFunc({type: 'CLOSE_AUTH_ALERT'}), 5000)
                 return AlertFunc({type: 'ERROR_AUTH_ALERT', data: 'Please Login!'})
             }

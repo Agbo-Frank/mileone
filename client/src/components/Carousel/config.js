@@ -30,15 +30,45 @@ const settings = {
     // prevArrow: <SamplePrevArrow />,
     responsive: [
           {
-            breakpoint: 494,
+            breakpoint: 334,
             settings: {
               slidesToShow: 1,
               rows: 1,
-              centerPadding: "80px",
+              centerPadding: "10px",
               centerMode: true,
               infinite: true,
             }
         },
+          {
+            breakpoint: 399,
+            settings: {
+              slidesToShow: 1,
+              rows: 1,
+              centerPadding: "30px",
+              centerMode: true,
+              infinite: true,
+            }
+        },
+          {
+            breakpoint: 454,
+            settings: {
+              slidesToShow: 1,
+              rows: 1,
+              centerPadding: "50px",
+              centerMode: true,
+              infinite: true,
+            }
+        },
+        {
+          breakpoint: 494,
+          settings: {
+            slidesToShow: 1,
+            rows: 1,
+            centerPadding: "80px",
+            centerMode: true,
+            infinite: true,
+          }
+      },
         {
             breakpoint: 584,
             settings: {

@@ -53,16 +53,22 @@
 }
 .productCard > div > div p:nth-child(2) i{
     color: #F48C06;
+    font-size: 12px;
+    line-height: 1;
 }
 .productCard > div > div .stars{
     width: 100%;
     margin-left: 8px;
+}
+.productCard > div > div .stars li{
+    line-height: 1;
 }
 .productCard > div > div > h2{
     font-weight: bold;
     font-size: 18px;
     color: #6A040F;
     margin-left: 8px;
+    line-height: 1;
 }
 .productCard > div > div > div{
     display: flex;

@@ -59,8 +59,8 @@ function Form({ active, setActive }){
         onError: (err) => errorHandling(err)
     }
 
-    const [login] = useLazyQuery(LOGINUSER, {...config})
-    const [signUp] = useMutation(SIGNUPUSER, {...config})
+    const [login, {loading: logining}] = useLazyQuery(LOGINUSER, {...config})
+    const [signUp, {loading: signing}] = useMutation(SIGNUPUSER, {...config})
     const [GL] = useMutation(GOOGLELOGIN, {...config})
 
     const [fPW] = useMutation(FORGETPASSWORD, {
@@ -152,14 +152,14 @@ function Form({ active, setActive }){
                         <small 
                         onClick={async () => {
                             await setTimeout(() => AlertFunc({type: 'CLOSE_AUTH_ALERT'}), 5000)
-                            AlertFunc({type: 'ERROR_AUTH_ALERT', data: "please Provide your email and click on the send new password"})
+                            AlertFunc({type: 'INFO_AUTH_ALERT', data: "please Provide your email and click on the send new password"})
                             setActive('forgetPassWord')
                         }}>Forgot Password</small> :
                         active === 'forgetPassWord' &&
                         <small 
                         onClick={async () => {
                             await setTimeout(() => AlertFunc({type: 'CLOSE_AUTH_ALERT'}), 5000)
-                            AlertFunc({type: 'SUCCESS_AUTH_ALERT', data: "please Login with the new password"})
+                            AlertFunc({type: 'INFO_AUTH_ALERT', data: "please Login with the new password"})
                             setActive('login')
                         }}>Login</small> 
                     }
@@ -168,10 +168,9 @@ function Form({ active, setActive }){
 
                 <div className="buttons">
                     <button type="submit">
-                        {/* {loading || registering && <i className="fa fa-spinner fa-spin" aria-hidden="true"></i>} */}
-                        {   active === 'login'? 
+                        {   logining ? "Loading...": active === 'login'? 
                             "Login" : 
-                            active === 'forgetPassWord'? 
+                            signing ? "Loading...": active === 'forgetPassWord'? 
                             "Get A new Password":"Sign Up"
                         }
                     </button>

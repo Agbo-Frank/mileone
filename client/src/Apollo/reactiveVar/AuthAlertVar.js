@@ -9,8 +9,9 @@ function AlertFunc(action){
             return AuthAlertVar([{
                 ...AuthAlertVar()[0],
                 message: "",
-                type: false,
-                show: false
+                type: "",
+                show: "",
+                display1: false
             }])
         }
         break;
@@ -18,8 +19,9 @@ function AlertFunc(action){
             return AuthAlertVar([{
                 ...AuthAlertVar()[0],
                 message: action.data,
-                type: false,
-                show: true
+                type: "danger",
+                show: "active",
+                display1: true
             }])
         }
         break;
@@ -27,8 +29,9 @@ function AlertFunc(action){
             return AuthAlertVar([{
                 ...AuthAlertVar()[0],
                 message: action.data,
-                type: true,
-                show: true
+                type: "success",
+                show: "active",
+                display1: true
             }])
         }
         break;
@@ -36,8 +39,9 @@ function AlertFunc(action){
             return AlertVar([{
                 ...AlertVar()[0],
                 message: "",
-                type: false,
-                show: false
+                type: "",
+                show: "",
+                display: false
             }])
         }
         break;
@@ -45,8 +49,9 @@ function AlertFunc(action){
             return AlertVar([{
                 ...AlertVar()[0],
                 message: action.data,
-                type: false,
-                show: true
+                type: "danger",
+                show: "active",
+                display: true
             }])
         }
         break;
@@ -54,8 +59,19 @@ function AlertFunc(action){
             return AlertVar([{
                 ...AlertVar()[0],
                 message: action.data,
-                type: true,
-                show: true
+                type: "success",
+                show: "active",
+                display: true
+            }])
+        }
+        break;
+        case 'INFO_AUTH_ALERT': {
+            return AuthAlertVar([{
+                ...AuthAlertVar()[0],
+                display1: true,
+                message: action.data,
+                type: "info",
+                show: "active",
             }])
         }
         break;

@@ -42,7 +42,10 @@ function Search(){
                 value={word}
                 onChange={(e) => searching(e)}
                  />
-                <i class="fa fa-times" onClick={() => ToggleFunc({type: 'CLOSE_SEARCH_PAGE'})}></i>
+                <i class="fa fa-times" onClick={() => {
+                    setWord('')
+                    ToggleFunc({type: 'CLOSE_SEARCH_PAGE'})
+                    }}></i>
             </div>
         </div>
         <div>

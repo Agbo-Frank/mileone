@@ -35,6 +35,18 @@ function BagdeCarousel(){
         slidesToShow: 5,
         swipeToSlide: true,
         rows: 1,
+        responsive: [
+            {
+              breakpoint: 369,
+              settings: {
+                slidesToShow: 2,
+                rows: 1,
+                centerPadding: "80px",
+                centerMode: true,
+                infinite: true,
+              }
+            },
+        ]
     }
     
     return(
@@ -64,6 +76,18 @@ function CategoryCarousel(){
         slidesToShow: 4,
         swipeToSlide: true,
         rows: 2,
+        responsive: [
+            {
+              breakpoint: 349,
+              settings: {
+                slidesToShow: 2,
+                rows: 1,
+                centerPadding: "70px",
+                centerMode: true,
+                infinite: true,
+              }
+            },
+        ]
     }
     
     return(

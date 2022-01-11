@@ -140,6 +140,10 @@ const GET_VENDOR = gql`
                     rate
                 }
                 price
+                vendor{
+                    logo
+                    name
+                }
             }
         }
     }
