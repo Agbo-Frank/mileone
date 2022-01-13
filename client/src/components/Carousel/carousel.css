@@ -1,13 +1,15 @@
 
 .slide{
     width: 95%;
-    margin: 20px auto;
-    padding-top: 0.3rem;
+    margin: 10px auto;
+}
+.slide.section-carousel{
+    display: none;
 }
 .slide1{
     width: 95%;
     margin: 20px auto;
-    display: none;
+    display: none !important;
 }
 .barges{
     background-color: rgba(244, 140, 6, 0.37);
@@ -19,8 +21,18 @@
     color: rgba(106, 4, 15, 1);
     display: none;
 }
+.barges.active{
+    background-color: #F48C06;
+    color: white;
+}
 @media screen and (max-width: 650px) {
+    .slide1{
+        display: block !important;
+    }
     .barges{
-        display: block;
+        display: block !important;
+    }
+    .slide.section-carousel{
+        display: block !important;
     }
 }

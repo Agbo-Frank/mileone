@@ -3,7 +3,7 @@ import { useQuery, useMutation } from '@apollo/client'
 import Loader from '../../Loader/Loader'
 import { GET_VENDOR } from '../../../Apollo/operations/Queries'
 import {Image} from 'cloudinary-react';
-import { Header, Hero2, Section } from "../../../components";
+import { Header, Hero1, Section } from "../../../components";
 import './Brand.css'
 
 const Brand = () => {
@@ -20,23 +20,20 @@ const Brand = () => {
     // if(loading)return <Loader />
     return (
         <>
-            <Hero2 />
-            <section className="section">
+            <Hero1 />
+            <section>
                 <div className="brand-info">
                     <div>
                         <Image cloudName="agbofrank" publicId={vendor?.logo} secure="true"></Image>
                         <div>
                             <h5>{vendor?.name}</h5>
                             <p>{vendor?.address}</p>
-                            <button className="btn">{vendor?.followers.length} followers</button>
+                            <button>{vendor?.followers.length} followers</button>
                         </div>
                     </div>
-                    <div>
-                        <button className="btn">Follow</button>
-                    </div>
+                    <button>Follow</button>
                 </div>
                 <Section title="Hot Deals" products={vendor?.products}/>
-                <Section title="Exclusively New" products={vendor?.products}/>
                 <Section title="Exclusively New" products={vendor?.products}/>
             </section>
         </>

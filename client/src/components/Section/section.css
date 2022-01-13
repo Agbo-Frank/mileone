@@ -3,4 +3,17 @@
     grid-template-columns:  repeat(auto-fit, minmax(17rem, 1fr));
     gap: 20px;
 }
-
+.mile-label{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    width: 100%;
+    padding: 0 15px;
+    font-size: 15px;
+    color: #D20F10;
+}
+@media screen and (max-width: 650px){
+    .mile-label{
+        font-size: 13px;
+    }
+}

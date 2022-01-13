@@ -3,7 +3,7 @@ import React from 'react';
 import Loader from '../../Loader/Loader'
 import { BrandSection, Hero1, Section } from "../../../components";
 import {GET_PRODUCTS, GET_VENDORS} from '../../../Apollo/operations/Queries'
-import {Carousel, BagdeCarousel, CategoryCarousel} from '../../Carousel/Carousel'
+import {Carousel} from '../../Carousel/Carousel'
 import { ToggleFunc } from '../../../Apollo/reactiveVar/Toggle';
 import './Home.css'
 
@@ -26,9 +26,7 @@ const Home = () => {
             onFocus={() => ToggleFunc({type: 'OPEN_SEARCH_PAGE'})}/>
             <i className="fas fa-search"></i>
         </div>
-        <BagdeCarousel />
         <BrandSection vendors={ vendor }/>
-        <CategoryCarousel />
         <section className="section">
             <Section title="Hot Deals" products={products} link="all"/>
         </section>

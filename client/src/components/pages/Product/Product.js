@@ -81,10 +81,10 @@ const Product = () => {
     if(loading) return <Loader />
     return (
         <>  
-            <section>
+            <section className="product-page">
                 <div className="product-image">
                     <Image cloudName="agbofrank" publicId={product?.image} secure="true"></Image>
-                    <div className="brand-info">
+                    <div className="pbrand-info">
                         <div>
                             <Image cloudName="agbofrank" publicId={product?.vendor?.logo} secure="true"></Image>
                             <div>
@@ -93,13 +93,11 @@ const Product = () => {
                                 <button className="_btn">{product?.vendor?.followers.length} followers</button>
                             </div>
                         </div>
-                        <div>
-                            <button className="_btn" onClick={() => follow({
-                                variables:{
-                                    id: product?.vendor?._id
-                                }
-                            })}>{following ? 'following...':'follow'}</button>
-                        </div>
+                        <button className="_btn" onClick={() => follow({
+                            variables:{
+                                id: product?.vendor?._id
+                            }
+                        })}>{following ? 'following...':'follow'}</button>
                     </div>
                     <div className="text-content">
                         <h4>{product?.name}</h4>
@@ -111,8 +109,8 @@ const Product = () => {
                         </p>
                     </div>
                     <div className="addbuttons">
-                            <button onClick={() => add(product?._id, "addToCart")}>Add To cart</button>
-                            <button onClick={() => add(product?._id, "wishlist")}>Wishlist</button>
+                        <button onClick={() => add(product?._id, "addToCart")}>Add To cart</button>
+                        <button onClick={() => add(product?._id, "wishlist")}>Wishlist</button>
                     </div>
                     <div>
                         <div className="feedback_label">
@@ -155,7 +153,7 @@ const Product = () => {
                         </div>
                     </div>
                 </div>
-                <div className="product">
+                {/*<div className="product">
                     <Image cloudName="agbofrank" publicId={product?.image} secure="true">
                         <Transformation background="#E9F3FD" />
                         <Transformation width="270" height="240" crop="fill" gravity="center" />
@@ -174,9 +172,7 @@ const Product = () => {
                             onClick={() => add(product?._id, "wishlist")}>Wishlist</button>
                         </div>
                     </div>
-                </div>
-                {/* <Section title="What Others Bought"/>
-                <Section title="Special Offers"/> */}
+                    </div>*/}
             </section>
         </>
     );

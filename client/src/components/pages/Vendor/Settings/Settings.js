@@ -20,8 +20,8 @@ const Settings = () => {
         instagram: '',
         twitter: '',
         pnumber: '',
-        image: '',
-        // logo: ''
+        image: null,
+        logo: null
     })
 
     return (

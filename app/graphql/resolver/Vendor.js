@@ -158,12 +158,12 @@ module.exports = {
                     })
                 })
             }
-            else if(logo){
+            else if(logo && img===''){
                 cloudinary.uploader.upload(logo, (error, res1) =>{
                     newUser.logo = res1
                 })
             }
-            else if(img){
+            else if(logo === '' && img){
                 cloudinary.uploader.upload(img, (error, res1) =>{
                     newUser.img = res1
                 })

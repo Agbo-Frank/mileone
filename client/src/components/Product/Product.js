@@ -65,7 +65,7 @@ function Product({ product }){
                 <Image cloudName="agbofrank" publicId={product.image} secure="true">
                     <Transformation background="#E9F3FD" />
                     <Transformation width="270" height="240" crop="fill" gravity="center" />
-                    <Transformation radius="80" />
+                    {/* <Transformation radius="80" /> */}
                 </Image>
             </Link>
             <div>
@@ -74,7 +74,7 @@ function Product({ product }){
                     <p>{product?.name}</p>
                     <p><i class="fas fa-store"></i> {product?.vendor?.name}</p>
                     <Stars rate={aveRate}/>
-                    <h2>${product.price}</h2>
+                    <h2>₦{product.price}</h2>
                     <div>
                         <button 
                         type="button" 

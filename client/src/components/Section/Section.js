@@ -2,6 +2,7 @@ import React from "react";
 import { ProductCard } from "..";
 import './section.css'
 import { Link } from 'react-router-dom'
+import { Carousel } from "../Carousel/Carousel";
 
 
 
@@ -23,6 +24,7 @@ const Section = ({title, products, link}) => {
             ))
           }
         </div>
+        <Carousel products={products} show="section-carousel" />
     </div>
   );
 };

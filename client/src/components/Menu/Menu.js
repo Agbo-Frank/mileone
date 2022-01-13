@@ -4,10 +4,6 @@ import { Link, NavLink } from "react-router-dom";
 
 const menuArr = [
     {
-        text: "Restaurant",
-        img: images.restaurant
-    },
-    {
         text: "Cakes",
         img: images.snacks
     },
@@ -20,7 +16,7 @@ const menuArr = [
         img: images.snacks
     },
     {
-        text: "African Dishes",
+        text: "Dishes",
         img: images.dishes
     },
     {

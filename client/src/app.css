@@ -14,19 +14,9 @@ body{
     font-family: 'Ubuntu', sans-serif;
 }
 .section{
-    width: 80%;
+    width: 95%;
     margin: 20px auto;
 }
-.mile-label{
-    display: flex;
-    justify-content: space-between;
-    font-weight: 600;
-    width: 100%;
-    padding: 0 40px;
-    font-size: 16px;
-    color: #D20F10;
-}
-
 
 @media screen and (max-width: 768px){
     .mile-card{

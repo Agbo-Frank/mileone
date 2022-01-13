@@ -1,4 +1,7 @@
-.product{
+.product-page{
+    width: 100% !important;
+}
+/* .product{
     width: 300px;
     height: 300px;
     position: fixed;
@@ -50,7 +53,7 @@
 }
 .product > div > div > button:last-child{
     background: #F48C06;
-}
+} */
 .product-image{
     width: 54%;
     margin: 10px auto;
@@ -60,39 +63,28 @@
     height: auto;
     object-fit: cover;
 }
-.brand-info{
-    display: flex;
+.product-image .pbrand-info{
     width: 100%;
+    display: flex;
     justify-content: space-between;
-    align-items: center;
     margin: 1rem 0;
 }
-.brand-info > div:first-child{
+.product-image .pbrand-info > div{
     display: flex;
-    justify-content: flex-start; 
-    gap: 1rem;
+    justify-content: space-between;
+    width: fit-content;
 }
-.brand-info > div:first-child img{
-    width: 85px;
+.product-image .pbrand-info > div > img{
+    width: 28%;
     height: 85px;
     object-fit: cover;
 }
-.brand-info > div:first-child > div{
-    align-self: flex-start;
-    margin: 0;padding: 0;
-    width: 100%;
+.product-image .pbrand-info > div > div{
+    width: 68%;
 }
-.pbrand-info > div:first-child > div > h5{
-    font-size: 16px;
-    line-height: 1;
-    color: #370617;
-    font-weight: 700;
-}
-.brand-info > div:first-child > div > p{
-    line-height: 1;
-    font-size: 13px;
-}
-.brand-info ._btn{
+.product-image .pbrand-info button{
+    width: fit-content;
+    padding: 7px 15px;
     background-color: #F48C06;
     border: none;
     outline: none;
@@ -101,11 +93,18 @@
     font-size: 14px;
     padding: 5px 20px;
 }
-.brand-info > div:last-child{
+.product-image .pbrand-info > button{
     align-self: flex-start;
 }
-.brand-info > div:last-child > ._btn{
-    align-self: flex-start;
+.product-image .pbrand-info > div > div > h5{
+    font-size: 16px;
+    line-height: 1;
+    color: #370617;
+    font-weight: 700;
+}
+.product-image .brand-info > div > div > p{
+    line-height: 1;
+    font-size: 13px;
 }
 .text-content h4{
     font-family: 'Ubuntu', sans-serif;
@@ -121,6 +120,9 @@
     font-size: 14px;
 }
 .addbuttons{
+    position: sticky;
+    bottom: 0;
+    left: 0; right: 0;
     display: flex;
     width: 100%;
     justify-content: space-around;
@@ -247,14 +249,6 @@
     font-size: 14px;
     color: #D00000;
 }
-@media screen and (max-width: 850px) {
-    .product{
-        display: none;
-    }
-    .product-image{
-        width: 70%;
-    }
-}
 
 @media screen and (max-width: 850px) {
     .product-image{
@@ -263,15 +257,31 @@
 }
 
 @media screen and (max-width: 650px) {
-    .pbrand-info > div:first-child img{
-        width: 55px;
-        height: 55px;
-        object-fit: cover;
+    .product-page{
+        padding: 0 0.5rem;
     }
     .product-image{
         width: 98%;
     }
-    .pbrand-info > div:first-child{
-        width: 70%;
+    .product-image .pbrand-info > div{
+        width: 74%;
+    }
+    .product-image .pbrand-info > div img{
+        width: 24%;
+        height: 85px;
+        object-fit: cover;
+    }
+    .product-image .pbrand-info > div > div{
+        width: 73%;
+    }
+    .product-image .pbrand-info > div > div > h5{
+        font-size: 15px;
+    }
+    .product-image .pbrand-info > div > div > p{
+        font-size: 11px;
+    }
+    .product-image .pbrand-info button{
+        font-size: 12px;
+        padding: 5px 15px;
     }
 }

@@ -1,41 +1,70 @@
 
 .brand-info{
+    width: 100%;
     display: flex;
-    justify-content: flex-start;
-    gap: 9rem;
-    margin: 3rem 0;
+    justify-content: space-between;
+    margin: 1rem 0;
 }
 .brand-info > div{
     display: flex;
-    justify-content: flex-start;
-    gap: 2rem;
+    justify-content: space-between;
+    width: fit-content;
 }
-.brand-info > div img{
-    width: 150px;
-    height: auto;
+.brand-info > div > img{
+    width: 28%;
+    height: 85px;
     object-fit: cover;
 }
 .brand-info > div > div{
-    align-self: flex-start;
-    margin: 0;padding: 0;
+    width: 68%;
 }
-.brand-info > div > div > h5{
-    font-size: 20px;
-    color: #370617;
-    font-weight: 700;
-}
-.brand-info > div > div > p{
-    line-height: 9px;
-}
-.brand-info > div > .btn{
-    align-self: flex-start;
-}
-.brand-info .btn{
+.brand-info button{
+    width: fit-content;
+    padding: 7px 15px;
     background-color: #F48C06;
     border: none;
     outline: none;
     border-radius: 20px;
     color: white;
-    font-size: 16px;
+    font-size: 14px;
     padding: 5px 20px;
+}
+.brand-info > button{
+    align-self: flex-start;
+}
+.brand-info > div > div > h5{
+    font-size: 16px;
+    line-height: 1;
+    color: #370617;
+    font-weight: 700;
+}
+.brand-info > div > div > p{
+    line-height: 1;
+    font-size: 13px;
+}
+@media screen and (max-width: 650px) {
+    .brand-info > div{
+        width: 74%;
+    }
+    .brand-info + section > .grid{
+        display: none;
+    }
+    .brand-info > div img{
+        width: 24%;
+        height: 85px;
+        object-fit: cover;
+    }
+    .brand-info > div > div{
+        width: 73%;
+    }
+    .brand-info > div > div > h5{
+        font-size: 15px;
+    }
+    .brand-info > div> div > p{
+        font-size: 11px;
+    }
+    .brand-info button{
+        font-size: 12px;
+        padding: 5px 15px;
+    }
 }
