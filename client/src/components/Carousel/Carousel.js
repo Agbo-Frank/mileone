@@ -2,17 +2,19 @@ import Product from '../Product/Product'
 import { useState } from 'react'
 import { useLazyQuery } from '@apollo/client'
 import { GET_PRODUCTS_CATEGORY } from '../../Apollo/operations/Queries'
-import { useSearchParams, Link } from 'react-router-dom'
 import Slider from "react-slick";
 import './carousel.css'
 import settings from './config'
 
 function CategoryCarousel({ categoryFunc }){
+    const [active, setActive] = useState('all')
     const categories = [
         "all", "Cake",
-        "Snack", "Drink", "Shawama",
-        "Pizza", "Bread", "Intercontinetal",
-        "Bole", "African", "Dishes"
+        "Snack", "Drink",
+        "Shawama", "Pizza",
+        "Bread", "Bread",
+        "Intercontinetal", "Bole",
+        "Dishes"
 ,    ]
     const setting1 = {
         className: "center",
@@ -40,15 +42,8 @@ function CategoryCarousel({ categoryFunc }){
             {
                 categories.map((category, i) => (
                     <div key={i}>
-                        <div className="barges" onClick={(e) => {
-                            console.log(e.target.classList.contains('active'))
-                            if(e.target.classList.contains('active')){
-                                e.target.classList.remove('active')
-                            }
-                            else{
-                                e.target.classList.add('active')
-                            }
-                            console.log(e.target.classList.contains('active'))
+                        <div className={`barges ${category === active && "active"}`} onClick={(e) => {
+                            setActive(e.target.innerHTML)
                             categoryFunc({
                                 variables: {
                                     category
@@ -61,25 +56,16 @@ function CategoryCarousel({ categoryFunc }){
     )
 }
 
-function Carousel({products, name, show}){
-    const [Components_product, setComponents_product] = useState(products)
-
-    const [categoryFunc] = useLazyQuery(GET_PRODUCTS_CATEGORY,{
-        onCompleted: (data) => {
-            console.log(data)
-            return setComponents_product(data.getProductsCategory)
-        }
-    })
+function Carousel({products, title}){
 
     return(
         <>
-            <CategoryCarousel categoryFunc={categoryFunc}/>
             <div className="mile-label">
-                <p> {name}</p>
+                <p> {title}</p>
             </div>
-            <Slider {...settings} className={`slide ${show}`}>
+            <Slider {...settings} className="slide">
                 {
-                    Components_product?.map(product => (
+                    products?.map(product => (
                         <div key={product._id}>
                             <Product product={product}/>
                         </div>

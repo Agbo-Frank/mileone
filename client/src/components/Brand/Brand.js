@@ -35,8 +35,16 @@ function Brand({ vendors }){
                 <p> Brands</p>
                 <p>See all</p>
             </div>
-            <div>
-                <Slider {...settings} className="slide">
+            <div className="grid">
+                {
+                    vendors?.map(vendor => (
+                        <div key={vendor._id}>
+                            <BrandComponent vendor={vendor} key={vendor._id}/>
+                        </div>
+                    )).slice(0, 8)
+                }
+            </div>
+            <Slider {...settings} className="slide">
                     {
                         vendors?.map(vendor => (
                             <div key={vendor._id}>
@@ -44,16 +52,10 @@ function Brand({ vendors }){
                             </div>
                         ))
                     }
-                </Slider>
-            </div>
+            </Slider>
 
         </>
     )
 }
 
 export default Brand
-// {
-//     vendors?.map(vendor => (
-//         <BrandComponent vendor={vendor} key={vendor._id}/>
-//     ))
-// }

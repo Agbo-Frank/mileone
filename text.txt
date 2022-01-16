@@ -35,9 +35,6 @@
     "description": "i love it",
     "availability": true
 }
-db.bios.find(
-   { "name.last": { $regex: /^N/ } }
-)
 http://localhost:5500/api/comment/61797c302053655f5d188f4c
 "C:\Program Files\MongoDB\Server\5.0\bin\mongod.exe" --dbpath="c:\data\db"
 git config --global user.name "Agbo-Frank"
@@ -45,6 +42,6 @@ ssh-keygen -t ed25519 -C "agbofrank531@gmail.com"
 
 git remote set-url origin https://github.com/Agbo-Frank/mileone.git
 
-https://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@github.com/Agbo-Frank/mileone.git
+https://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@github.com/Agbo-Frank/mileone.git
 
 git push https://<GITHUB_ACCESS_TOKEN>@github.com/<GITHUB_USERNAME>/<REPOSITORY_NAME>.git

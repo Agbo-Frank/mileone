@@ -1,13 +1,13 @@
 
 .slide{
-    width: 95%;
+    width: 100%;
     margin: 10px auto;
 }
-.slide.section-carousel{
+/* .slide.section-carousel{
     display: none;
-}
+} */
 .slide1{
-    width: 95%;
+    width: 100%;
     margin: 20px auto;
     display: none !important;
 }
@@ -32,7 +32,7 @@
     .barges{
         display: block !important;
     }
-    .slide.section-carousel{
+    /* .slide.section-carousel{
         display: block !important;
-    }
+    } */
 }

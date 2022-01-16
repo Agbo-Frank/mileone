@@ -21,10 +21,10 @@ const Section = ({title, products, link}) => {
               <ProductCard 
               product={product}  
               key={product._id}/>
-            ))
+            )).slice(0, 8)
           }
         </div>
-        <Carousel products={products} show="section-carousel" />
+        <Carousel products={products}/>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from '@apollo/client'
 import { Stars } from '../../components'
+import { ModelFunc } from '../../Apollo/reactiveVar/Model';
 import { ToggleFunc } from '../../Apollo/reactiveVar/Toggle';
 import { AlertFunc } from '../../Apollo/reactiveVar/AuthAlertVar'
 import {Image, Transformation} from 'cloudinary-react';
@@ -63,9 +64,7 @@ function Product({ product }){
         <div className="productCard">
             <Link to={`/product/${product._id}`}>
                 <Image cloudName="agbofrank" publicId={product.image} secure="true">
-                    <Transformation background="#E9F3FD" />
                     <Transformation width="270" height="240" crop="fill" gravity="center" />
-                    {/* <Transformation radius="80" /> */}
                 </Image>
             </Link>
             <div>
@@ -78,7 +77,7 @@ function Product({ product }){
                     <div>
                         <button 
                         type="button" 
-                        onClick={() => add(product._id, "addToCart")}>Add to Cart</button>
+                        onClick={() => ModelFunc({type: 'OPEN_MODEL'})}>Add to Cart</button>
                         <button 
                         type="button"
                         onClick={() => add(product._id, "wishlist")}>Wishlist</button>
@@ -90,3 +89,5 @@ function Product({ product }){
 }
 
 export default Product
+
+// add(product._id, "addToCart")

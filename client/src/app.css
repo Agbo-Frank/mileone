@@ -13,10 +13,6 @@ body{
     background-color: #E9F3FD;
     font-family: 'Ubuntu', sans-serif;
 }
-.section{
-    width: 95%;
-    margin: 20px auto;
-}
 
 @media screen and (max-width: 768px){
     .mile-card{

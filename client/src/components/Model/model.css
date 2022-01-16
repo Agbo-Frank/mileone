@@ -2,15 +2,20 @@
     width: 100vw;
     height: 100vh;
     position: fixed;
-    top: 0; left: 0;
-    bottom: 0; right: 0;
-    display: flex;
+    left: 0;
+    bottom: 200%; right: 0;
+    display: none;
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(4px);
     background-color: rgba(0, 0, 0, 0.2);
     z-index: 10;
     overflow: hidden;
+    transition: display 0.05s linear, bottom 0.2s linear;
+}
+.model.active{
+    display: flex;
+    bottom: 0;
 }
 .model .box{
     background-color: #E9F3FD;
@@ -28,4 +33,29 @@
 }
 .model .box i:hover{
     color: crimson;
+}
+.model .box > div{
+    display: flex;
+    gap: 10px;
+    margin: 13px 0 0;
+}
+.model .box > div img{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.model .box > div > p{
+    margin: auto 3px;
+}
+.model .box button{
+    display: block;
+    outline: none;
+    border: none;
+    background-color: #D00000;
+    color: white;
+    width: 80%;
+    margin: 18px auto;
+    border-radius: 8px;
+    padding: 9px 15px;
 }

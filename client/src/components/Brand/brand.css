@@ -3,8 +3,7 @@
     grid-template-columns:  repeat(auto-fit, minmax(15rem, 1fr));
 }
 .slide{
-    width: 93%;
-    margin: 20px auto;
+    width: 100%;
 }
 .brand-card{
     position: relative;
@@ -70,10 +69,4 @@
     font-size: 12px;
     text-transform: capitalize;
     color: #03071E;
-}
-
-@media screen and (max-width: 520px){
-    .owl-theme{
-        display: block;
-    }
 }

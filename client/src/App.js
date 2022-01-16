@@ -3,6 +3,7 @@ import Header from './components/Header/Header'
 import Search from './components/Search/Search'
 import {Alert} from './components/Alert/Alert'
 import LoginPop from './components/LoginPop/LoginPop'
+import Model from './components/Model/Model'
 import { Home, Brand, Product, About, Cart, Login, Wishlist, Settings, VendorProduct, Pricing, Footer } from './components';
 import NavBar from './components/NavBar/NavBar'
 import Products from './components/pages/Products/Product'
@@ -16,6 +17,7 @@ function App() {
   return (
     <>
       <Header />
+      <Model />
       <Search />
       <Routes>
         <Route exact path="/*" element={<Home />}  />

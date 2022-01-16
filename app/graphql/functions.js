@@ -64,6 +64,12 @@ function returnVendor(user){
         ...user,
         products: () => {
             return Product.find({vendorId: user._id})
+                .then(products => {
+                    return products.map(product => returnProduct(product))
+                })
+                .catch(err => {
+                    throw err
+                })
         }
     }
 }

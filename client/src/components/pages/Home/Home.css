@@ -1,4 +1,7 @@
-
+.section{
+    width: 88%;
+    margin: 25px auto;
+}
 .section > .brand-grid{
     display: grid;
     grid-template-columns:  repeat(auto-fit, minmax(15rem, 1fr));
@@ -6,9 +9,15 @@
 .home-search{
     display: none;
 }
+@media screen and (max-width: 1200px) {
+    .section{
+        width: 90%;
+        margin: 25px auto;
+    }
+}
 @media screen and (max-width: 650px){
     .section{
-        display: none;
+        width: 100%;
     }
     .home-search{
         display: block;

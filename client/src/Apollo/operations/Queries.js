@@ -45,6 +45,7 @@ const GET_PRODUCTS_CATEGORY = gql`
         getProductsCategory(category: $category){
             name
             _id
+            vendorId
             vendor{
                 name
                 logo
