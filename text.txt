@@ -42,6 +42,6 @@ ssh-keygen -t ed25519 -C "agbofrank531@gmail.com"
 
 git remote set-url origin https://github.com/Agbo-Frank/mileone.git
 
-https://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@github.com/Agbo-Frank/mileone.git
+https://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@github.com/Agbo-Frank/mileone.git
 
 git push https://<GITHUB_ACCESS_TOKEN>@github.com/<GITHUB_USERNAME>/<REPOSITORY_NAME>.git

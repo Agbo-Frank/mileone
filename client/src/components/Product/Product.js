@@ -77,7 +77,7 @@ function Product({ product }){
                     <div>
                         <button 
                         type="button" 
-                        onClick={() => ModelFunc({type: 'OPEN_MODEL'})}>Add to Cart</button>
+                        onClick={() => add(product._id, "addToCart")Add to Cart</button>
                         <button 
                         type="button"
                         onClick={() => add(product._id, "wishlist")}>Wishlist</button>

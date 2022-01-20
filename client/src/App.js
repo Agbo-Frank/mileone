@@ -20,7 +20,7 @@ function App() {
       <Model />
       <Search />
       <Routes>
-        <Route exact path="/*" element={<Home />}  />
+        <Route exact path="/" element={<Home />}  />
         <Route exact path="/brand/:id" element={<Brand />}  />
         <Route exact path="/products/:category" element={<Products />}  />
         <Route exact path="/product/:id" element={<Product />}  />
