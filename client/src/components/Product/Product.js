@@ -77,7 +77,7 @@ function Product({ product }){
                     <div>
                         <button 
                         type="button" 
-                        onClick={() => add(product._id, "addToCart")Add to Cart</button>
+                        onClick={() => add(product._id, "addToCart")}>Add to Cart</button>
                         <button 
                         type="button"
                         onClick={() => add(product._id, "wishlist")}>Wishlist</button>
